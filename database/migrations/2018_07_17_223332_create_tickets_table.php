@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
             $table->text('description');
             $table->integer('district_id')->unsigned()->index();
             $table->integer('building_id')->unsigned()->index();
+            $table->string('room');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('priority_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
