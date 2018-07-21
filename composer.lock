@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "62eca23e8217deb262e120c40d02b782",
+  "content-hash": "d299aeabd832233cb856683bc509ce8d",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -1422,6 +1422,63 @@
         "time"
       ],
       "time": "2018-03-19T15:50:49+00:00"
+    },
+    {
+      "name": "niiknow/bayes",
+      "version": "1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/niiknow/bayes.git",
+        "reference": "6f697328fe9cf4e14f29c1e56da964bc5437f0cf"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/niiknow/bayes/zipball/6f697328fe9cf4e14f29c1e56da964bc5437f0cf",
+        "reference": "6f697328fe9cf4e14f29c1e56da964bc5437f0cf",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "~6.3.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "niiknow\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Tom Noogen",
+          "email": "friends@niiknow.org"
+        }
+      ],
+      "description": "a machine learning lib",
+      "keywords": [
+        "bayes",
+        "classifier",
+        "lib",
+        "library",
+        "machine-learning",
+        "machine-learning-algorithm",
+        "naive",
+        "naive-bayes",
+        "naive-bayes-algorithm",
+        "naive-bayes-classification",
+        "naive-bayes-classifier",
+        "naivebayes",
+        "niiknow",
+        "php",
+        "php-library",
+        "php-ml"
+      ],
+      "time": "2017-09-10T20:54:03+00:00"
     },
     {
       "name": "nikic/php-parser",
