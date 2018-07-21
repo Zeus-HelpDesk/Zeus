@@ -29,8 +29,8 @@ class CreateUsersTable extends Migration
             $table->timestampsTz();
 
             // When a district is deleted so are all the users that are part of that district, same goes for buildings
-            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
-            $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
+            //$table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
+            //$table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
 
         });
     }

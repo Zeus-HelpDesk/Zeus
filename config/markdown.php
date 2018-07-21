@@ -43,6 +43,7 @@ return [
 
     'extensions' => [
         \Webuni\CommonMark\TableExtension\TableExtension::class,
+        \App\Markdown\MarkdownExtension::class,
     ],
 
     /*

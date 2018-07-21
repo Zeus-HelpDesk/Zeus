@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/settings');
 Route::post('/settings');
 
+Route::get('/user/:user');
+
 Route::group(['prefix' => '/ticket'], function () {
     Route::get('/create');
     Route::get('/:ticket');

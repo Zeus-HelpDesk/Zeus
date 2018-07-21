@@ -25,7 +25,7 @@ class CreateBuildingsTable extends Migration
             $table->timestampsTz();
 
             // If a district is deleted then all the buildings will too
-            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
+            //$table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
         });
     }
 
