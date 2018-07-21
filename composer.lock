@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "484c3e47c64451e0a728c2dc992924a0",
+  "content-hash": "62eca23e8217deb262e120c40d02b782",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -537,6 +537,200 @@
       "time": "2018-02-07T20:20:57+00:00"
     },
     {
+      "name": "graham-campbell/manager",
+      "version": "v4.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+        "reference": "95b654ac39eae15299c6c7400249c204c8ae7bf0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/95b654ac39eae15299c6c7400249c204c8ae7bf0",
+        "reference": "95b654ac39eae15299c6c7400249c204c8ae7bf0",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/contracts": "5.5.*|5.6.*",
+        "illuminate/support": "5.5.*|5.6.*",
+        "php": "^7.1.3"
+      },
+      "require-dev": {
+        "graham-campbell/analyzer": "^2.0",
+        "graham-campbell/testbench-core": "^3.0",
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^6.5|^7.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "4.0-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "GrahamCampbell\\Manager\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Graham Campbell",
+          "email": "graham@alt-three.com"
+        }
+      ],
+      "description": "Manager Provides Some Manager Functionality For Laravel 5",
+      "keywords": [
+        "Graham Campbell",
+        "GrahamCampbell",
+        "Laravel Manager",
+        "Laravel-Manager",
+        "connector",
+        "framework",
+        "interface",
+        "laravel",
+        "manager"
+      ],
+      "time": "2018-02-11T14:57:19+00:00"
+    },
+    {
+      "name": "graham-campbell/markdown",
+      "version": "v10.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
+        "reference": "359701e5e3986ba18d1b3d390e898a370b8f00d6"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/359701e5e3986ba18d1b3d390e898a370b8f00d6",
+        "reference": "359701e5e3986ba18d1b3d390e898a370b8f00d6",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/contracts": "5.5.*|5.6.*",
+        "illuminate/support": "5.5.*|5.6.*",
+        "illuminate/view": "5.5.*|5.6.*",
+        "league/commonmark": "^0.17",
+        "php": "^7.1.3"
+      },
+      "require-dev": {
+        "graham-campbell/analyzer": "^2.0",
+        "graham-campbell/testbench": "^5.0",
+        "league/commonmark-extras": "^0.1.4",
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^6.5|^7.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "10.0-dev"
+        },
+        "laravel": {
+          "providers": [
+            "GrahamCampbell\\Markdown\\MarkdownServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "GrahamCampbell\\Markdown\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Graham Campbell",
+          "email": "graham@alt-three.com"
+        }
+      ],
+      "description": "Markdown Is A CommonMark Wrapper For Laravel 5",
+      "keywords": [
+        "Graham Campbell",
+        "GrahamCampbell",
+        "Laravel Markdown",
+        "Laravel-Markdown",
+        "common mark",
+        "commonmark",
+        "framework",
+        "laravel",
+        "markdown"
+      ],
+      "time": "2018-03-01T21:04:35+00:00"
+    },
+    {
+      "name": "hashids/hashids",
+      "version": "3.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/ivanakimov/hashids.php.git",
+        "reference": "b6c61142bfe36d43740a5419d11c351dddac0458"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/b6c61142bfe36d43740a5419d11c351dddac0458",
+        "reference": "b6c61142bfe36d43740a5419d11c351dddac0458",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.1.3"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^7.0"
+      },
+      "suggest": {
+        "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
+        "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "3.0-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Hashids\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Akimov",
+          "email": "ivan@barreleye.com",
+          "homepage": "https://twitter.com/IvanAkimov"
+        },
+        {
+          "name": "Vincent Klaiber",
+          "email": "hello@vinkla.com",
+          "homepage": "https://vinkla.com"
+        }
+      ],
+      "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers",
+      "homepage": "http://hashids.org/php",
+      "keywords": [
+        "bitly",
+        "decode",
+        "encode",
+        "hash",
+        "hashid",
+        "hashids",
+        "ids",
+        "obfuscate",
+        "youtube"
+      ],
+      "time": "2018-03-12T16:30:09+00:00"
+    },
+    {
       "name": "jacobbennett/laravel-http2serverpush",
       "version": "v2.0.5",
       "source": {
@@ -944,6 +1138,75 @@
         "psysh"
       ],
       "time": "2018-05-17T13:42:07+00:00"
+    },
+    {
+      "name": "league/commonmark",
+      "version": "0.17.5",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/thephpleague/commonmark.git",
+        "reference": "82d7ab62d7f68391cb9d323f3ccce50be24a5369"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/82d7ab62d7f68391cb9d323f3ccce50be24a5369",
+        "reference": "82d7ab62d7f68391cb9d323f3ccce50be24a5369",
+        "shasum": ""
+      },
+      "require": {
+        "ext-mbstring": "*",
+        "php": ">=5.6.5"
+      },
+      "replace": {
+        "colinodell/commonmark-php": "*"
+      },
+      "require-dev": {
+        "cebe/markdown": "~1.0",
+        "commonmark/commonmark.js": "0.28",
+        "erusev/parsedown": "~1.0",
+        "michelf/php-markdown": "~1.4",
+        "mikehaertl/php-shellcommand": "^1.2",
+        "phpunit/phpunit": "^5.7|^6.5",
+        "scrutinizer/ocular": "^1.1",
+        "symfony/finder": "^3.0|^4.0"
+      },
+      "suggest": {
+        "league/commonmark-extras": "Library of useful extensions including smart punctuation"
+      },
+      "bin": [
+        "bin/commonmark"
+      ],
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "0.18-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "League\\CommonMark\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
+        {
+          "name": "Colin O'Dell",
+          "email": "colinodell@gmail.com",
+          "homepage": "https://www.colinodell.com",
+          "role": "Lead Developer"
+        }
+      ],
+      "description": "Markdown parser for PHP based on the CommonMark spec",
+      "homepage": "https://github.com/thephpleague/commonmark",
+      "keywords": [
+        "commonmark",
+        "markdown",
+        "parser"
+      ],
+      "time": "2018-03-29T14:35:19+00:00"
     },
     {
       "name": "league/flysystem",
@@ -2722,6 +2985,78 @@
       "time": "2017-11-27T11:13:29+00:00"
     },
     {
+      "name": "vinkla/hashids",
+      "version": "5.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/vinkla/laravel-hashids.git",
+        "reference": "038e6bd44ce07225e89fee1cd52c00316bc4fec8"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/vinkla/laravel-hashids/zipball/038e6bd44ce07225e89fee1cd52c00316bc4fec8",
+        "reference": "038e6bd44ce07225e89fee1cd52c00316bc4fec8",
+        "shasum": ""
+      },
+      "require": {
+        "graham-campbell/manager": "^4.0",
+        "hashids/hashids": "^3.0",
+        "illuminate/contracts": "5.6.*",
+        "illuminate/support": "5.6.*",
+        "php": "^7.1.3"
+      },
+      "require-dev": {
+        "graham-campbell/analyzer": "^2.0",
+        "graham-campbell/testbench": "^5.0",
+        "mockery/mockery": "^1.0",
+        "phpunit/phpunit": "^7.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "5.0-dev"
+        },
+        "laravel": {
+          "providers": [
+            "Vinkla\\Hashids\\HashidsServiceProvider"
+          ],
+          "aliases": {
+            "Hashids": "Vinkla\\Hashids\\Facades\\Hashids"
+          }
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Vinkla\\Hashids\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Vincent Klaiber",
+          "email": "hello@vinkla.com",
+          "homepage": "https://vinkla.com"
+        }
+      ],
+      "description": "A Hashids bridge for Laravel",
+      "keywords": [
+        "bitly",
+        "decrypt",
+        "encrypt",
+        "hash",
+        "hashid",
+        "hashids",
+        "ids",
+        "laravel",
+        "obfuscate",
+        "youtube"
+      ],
+      "time": "2018-03-12T16:38:13+00:00"
+    },
+    {
       "name": "vlucas/phpdotenv",
       "version": "v2.5.0",
       "source": {
@@ -2770,6 +3105,64 @@
         "environment"
       ],
       "time": "2018-07-01T10:25:50+00:00"
+    },
+    {
+      "name": "webuni/commonmark-table-extension",
+      "version": "0.8.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/webuni/commonmark-table-extension.git",
+        "reference": "4304b1f56b26e5213a4a781b654f62ef5ed8fbe3"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/webuni/commonmark-table-extension/zipball/4304b1f56b26e5213a4a781b654f62ef5ed8fbe3",
+        "reference": "4304b1f56b26e5213a4a781b654f62ef5ed8fbe3",
+        "shasum": ""
+      },
+      "require": {
+        "league/commonmark": "^0.16|^0.17",
+        "php": "^5.6|^7.0"
+      },
+      "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.9",
+        "phpunit/phpunit": "^5.4|^6.0",
+        "symfony/var-dumper": "^3.0|^4.0",
+        "vimeo/psalm": "~0.3"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "0.8-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Webuni\\CommonMark\\TableExtension\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Martin Hasoň",
+          "email": "martin.hason@gmail.com"
+        },
+        {
+          "name": "Webuni s.r.o.",
+          "homepage": "https://www.webuni.cz"
+        }
+      ],
+      "description": "The table extension for CommonMark PHP implementation",
+      "homepage": "https://github.com/webuni/commonmark-table-extension",
+      "keywords": [
+        "commonmark",
+        "markdown",
+        "table"
+      ],
+      "time": "2018-01-24T12:30:02+00:00"
     }
   ],
   "packages-dev": [

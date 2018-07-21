@@ -15,6 +15,7 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('hash')->index();
             $table->text('description');
             $table->integer('district_id')->unsigned()->index();
             $table->integer('building_id')->unsigned()->index();

@@ -49,4 +49,18 @@ class Ticket extends Model implements Auditable
     {
         return $this->belongsToMany('App\User')->withTimestamps();
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $hash = null;
+            while (Ticket::whereHash($hash)->get()->count() > 0 || $hash === null) {
+                $hash = \Hashids::encode(gmp_random_bits(31));
+            }
+            $model->hash = $hash;
+        });
+
+    }
 }
