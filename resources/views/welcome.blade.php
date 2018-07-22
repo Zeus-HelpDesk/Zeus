@@ -62,6 +62,19 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        /**
+ * This CSS ensures that Emoji are the same size as the font and are centered up correctly.
+ */
+        .emoji {
+            display: inline-flex;
+            height: 1em;
+            width: 1em;
+            margin: 0 .05em 0 .1em;
+            vertical-align: -0.14em;
+            background: no-repeat center center;
+            background-size: 1em 1em;
+        }
     </style>
 </head>
 <body>
@@ -79,7 +92,10 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Laravel
+            <i class="emoji"
+               style="background-image: url('https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png')"></i>
+            Laravel <img class="emoji"
+                         src="https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png">
         </div>
 
         <div class="links">
@@ -88,6 +104,10 @@
             <a href="https://laravel-news.com">News</a>
             <a href="https://forge.laravel.com">Forge</a>
             <a href="https://github.com/laravel/laravel">GitHub</a>
+            <a href="https://www.rhodes.ml"><i class="emoji"
+                                               style="background-image: url('https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png')"></i>
+                My Site <img class="emoji"
+                             src="https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png"></a>
         </div>
     </div>
 </div>

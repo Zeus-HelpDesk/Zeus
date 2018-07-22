@@ -9,3 +9,16 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+/**
+ * This CSS ensures that Emoji are the same size as the font and are centered up correctly.
+ */
+.emoji {
+  display: inline-flex;
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.14em;
+  background: no-repeat center center;
+  background-size: 1em 1em;
+}
