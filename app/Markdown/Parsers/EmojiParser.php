@@ -68,6 +68,7 @@ class EmojiParser extends AbstractInlineParser
             $raw_data = (array)json_decode((string)$result->getBody(), true);
             foreach ($raw_data as $key => $emoji) {
                 $emoji = (object)$emoji;
+                // This handles the regular emoji
                 if ($emoji->has_img_twitter) {
                     foreach ($emoji->short_names as $shortname) {
                         $array[str_replace('-', '_', $shortname)] = [
