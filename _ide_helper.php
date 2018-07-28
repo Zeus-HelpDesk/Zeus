@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.27 on 2018-07-21 05:42:14.
+ * Generated for Laravel 5.6.27 on 2018-07-28 13:55:34.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -12557,6 +12557,28 @@ namespace Illuminate\Support\Facades {
 
 }
 
+namespace GrahamCampbell\Markdown\Facades {
+
+    class Markdown
+    {
+
+        /**
+         * Converts CommonMark to HTML.
+         *
+         * @param string $commonMark
+         * @return string
+         * @api
+         * @static
+         */
+        public static function convertToHtml($commonMark)
+        {
+            return \League\CommonMark\Converter::convertToHtml($commonMark);
+        }
+
+    }
+
+}
+
 namespace Laravel\Horizon {
 
     class Horizon
@@ -15054,6 +15076,10 @@ namespace {
     }
 
     class Mail extends \Illuminate\Support\Facades\Mail
+    {
+    }
+
+    class Markdown extends \GrahamCampbell\Markdown\Facades\Markdown
     {
     }
 

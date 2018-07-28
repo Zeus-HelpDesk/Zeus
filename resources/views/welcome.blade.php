@@ -92,23 +92,16 @@
 
     <div class="content">
         <div class="title m-b-md">
-            <i class="emoji"
-               style="background-image: url('https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png')"></i>
-            Laravel <img class="emoji"
-                         src="https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png">
+            Laravel
         </div>
 
         <div class="links">
-
             <a href="https://laravel.com/docs">Documentation</a>
             <a href="https://laracasts.com">Laracasts</a>
             <a href="https://laravel-news.com">News</a>
             <a href="https://forge.laravel.com">Forge</a>
             <a href="https://github.com/laravel/laravel">GitHub</a>
-            <a href="https://www.rhodes.ml"><i class="emoji"
-                                               style="background-image: url('https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png')"></i>
-                My Site <img class="emoji"
-                             src="https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/1f603.png"></a>
+            <a href="https://www.rhodes.ml">My Site</a>
         </div>
     </div>
 </div>

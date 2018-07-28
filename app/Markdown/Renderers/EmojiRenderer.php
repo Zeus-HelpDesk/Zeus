@@ -27,7 +27,6 @@ class EmojiRenderer implements InlineRendererInterface
         $attrs['src'] = $inline->getUrl();
         $attrs['class'] = "emoji";
         $attrs['alt'] = $htmlRenderer->renderInlines($inline->children());
-        //$attrs['style'] = "background-image: url('" . $inline->getUrl() . "')";
         return new HtmlElement('img', $attrs);
     }
 }

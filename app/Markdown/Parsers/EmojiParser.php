@@ -2,8 +2,8 @@
 
 namespace App\Markdown\Parsers;
 
+use App\Markdown\Elements\EmojiElement;
 use GrahamCampbell\GuzzleFactory\GuzzleFactory;
-use League\CommonMark\Inline\Element\Image;
 use League\CommonMark\Inline\Parser\AbstractInlineParser;
 use League\CommonMark\InlineParserContext;
 
@@ -48,7 +48,7 @@ class EmojiParser extends AbstractInlineParser
             $cursor->restoreState($saved);
             return false;
         }
-        $inline = new Image($map[$key]['img'], $key . ' Emoji');
+        $inline = new EmojiElement($map[$key]['img'], $key . ' Emoji');
         $inline->data['attributes'] = ['class' => 'emoji', 'data-emoji' => $key];
         $inlineContext->getContainer()->appendChild($inline);
         return true;
@@ -59,9 +59,9 @@ class EmojiParser extends AbstractInlineParser
      *
      * @return mixed
      */
-    private function getEmoji()
+    public function getEmoji()
     {
-        return \Cache::remember('emoji_data', 240, function () {
+        return \Cache::remember('emoji_short_data', 240, function () {
             $array = [];
             $headers = ['Accept' => 'application/json'];
             $result = GuzzleFactory::make()->get('https://cdn.rawgit.com/iamcal/emoji-data/master/emoji.json', ['headers' => $headers]);
@@ -80,6 +80,7 @@ class EmojiParser extends AbstractInlineParser
                 // This stuff here handles the emoji skin tones
                 if (array_key_exists('skin_variations', (array)$emoji)) {
                     foreach ($emoji->skin_variations as $skin => $skinTone) {
+                        $skinTone = (object)$skinTone;
                         switch ($skin) {
                             case '1F3FB':
                                 if ($skinTone->has_img_twitter) {

@@ -2,7 +2,10 @@
 
 namespace App\Markdown;
 
+use App\Markdown\Parsers\EmojiParser;
 use App\Markdown\Parsers\TicketMentionParser;
+use App\Markdown\Parsers\UserMentionParser;
+use App\Markdown\Renderers\EmojiRenderer;
 use League\CommonMark\Block\Parser\BlockParserInterface;
 use League\CommonMark\Block\Renderer\BlockRendererInterface;
 use League\CommonMark\DocumentProcessorInterface;
@@ -21,7 +24,7 @@ class MarkdownExtension implements ExtensionInterface
      */
     public function getBlockParsers()
     {
-        // TODO: Implement getBlockParsers() method.
+        return [];
     }
 
     /**
@@ -33,6 +36,8 @@ class MarkdownExtension implements ExtensionInterface
     {
         return [
             new TicketMentionParser(),
+            new UserMentionParser(),
+            new EmojiParser(),
         ];
     }
 
@@ -43,7 +48,7 @@ class MarkdownExtension implements ExtensionInterface
      */
     public function getInlineProcessors()
     {
-        // TODO: Implement getInlineProcessors() method.
+        return [];
     }
 
     /**
@@ -53,7 +58,7 @@ class MarkdownExtension implements ExtensionInterface
      */
     public function getDocumentProcessors()
     {
-        // TODO: Implement getDocumentProcessors() method.
+        return [];
     }
 
     /**
@@ -65,7 +70,7 @@ class MarkdownExtension implements ExtensionInterface
      */
     public function getBlockRenderers()
     {
-        // TODO: Implement getBlockRenderers() method.
+        return [];
     }
 
     /**
@@ -77,6 +82,8 @@ class MarkdownExtension implements ExtensionInterface
      */
     public function getInlineRenderers()
     {
-        // TODO: Implement getInlineRenderers() method.
+        return [
+            'App\Markdown\Elements\EmojiElement' => new EmojiRenderer()
+        ];
     }
 }
