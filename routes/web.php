@@ -33,9 +33,13 @@ Route::group(['prefix' => '/ticket'], function () {
 
 Route::group(['prefix' => '/admin'], function () {
     Route::get('/');
-    Route::get('/locations');
-    Route::get('/locations/:district');
-    Route::get('/locations/:district/:building');
+    Route::group(['prefix' => '/locations'], function () {
+        Route::get('/');
+        Route::get('/:district');
+        Route::get('/:district/edit');
+        Route::get('/:district/:building');
+        Route::get('/:district/:building/edit');
+    });
     Route::get('/help-desk/status');
     Route::get('/help-desk/category');
 });
