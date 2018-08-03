@@ -10,7 +10,6 @@ class EmojiElement extends AbstractWebResource
     /**
      * @param string $url
      * @param string|null $label
-     * @param string $title
      */
     public function __construct($url, $label = null)
     {

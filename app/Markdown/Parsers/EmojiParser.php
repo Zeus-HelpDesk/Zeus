@@ -133,13 +133,13 @@ class EmojiParser extends AbstractInlineParser
     /**
      * This function will convert the unified data into valid unicode
      *
-     * @param $str
+     * @param string $string
      * @return string
      */
-    private function unicode_bytes($str)
+    private function unicode_bytes($string)
     {
         $out = '';
-        $cps = explode('-', $str);
+        $cps = explode('-', $string);
         foreach ($cps as $cp) {
             $out .= $this->emoji_utf8_bytes(hexdec($cp));
         }
@@ -149,7 +149,7 @@ class EmojiParser extends AbstractInlineParser
     /**
      * This helps with the unicode_bytes function for returning valid unicode
      *
-     * @param $cp
+     * @param int $cp
      * @return string
      */
     private function emoji_utf8_bytes($cp)

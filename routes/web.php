@@ -43,3 +43,8 @@ Route::group(['prefix' => '/admin'], function () {
     Route::get('/help-desk/status');
     Route::get('/help-desk/category');
 });
+
+Route::get('/test', function () {
+    dd(Hashids::encode(gmp_random_bits(31)));
+    // 1,406,408,600,000
+});
