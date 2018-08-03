@@ -1,9 +1,11 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
+  "name": "matthew/Zeus",
+  "description": "Help Desk for contract IT departments",
   "keywords": [
-    "framework",
-    "laravel"
+    "help-desk",
+    "it-department",
+    "it",
+    "information-technology"
   ],
   "license": "MIT",
   "type": "project",

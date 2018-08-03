@@ -96,6 +96,7 @@ class Ticket extends Model implements Auditable
         static::creating(function ($model) {
             $hash = null;
             while (Ticket::whereHash($hash)->get()->count() > 0 || $hash === null) {
+                // Based on my calculations this code should provide 1,406,408,600,000 possible combinations, I might be wrong though
                 $hash = \Hashids::encode(gmp_random_bits(31));
             }
             $model->hash = $hash;
