@@ -17,6 +17,9 @@
     "laravel-mix": "^2.0",
     "lodash": "^4.17.4",
     "popper.js": "^1.12",
+    "simplemde": "^1.11.2",
+    "textcomplete": "^0.17.1",
+    "textcomplete.codemirror": "^0.2.1",
     "vue": "^2.5.7"
   }
 }
