@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Building;
+use App\District;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -49,9 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'invite_code' => 'required|string',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'room' => 'required|string',
+            'phone_number' => 'nullable|string',
+            'extension' => 'nullable|integer'
         ]);
     }
 
@@ -63,10 +68,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $split = explode('-', $data['invite_code']);
+        $district = District::whereCode($split[0])->firstOrFail(['id']);
+        $building = Building::whereDistrictId($district->id)->whereCode($split[1])->firstOrFail(['id']);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => \Hash::make($data['password']),
+            'district_id' => $district->id,
+            'building_id' => $building->id,
+            'room' => $data['room'],
+            'phone_number' => $data['phone_number'],
+            'extension' => $data['phone_extension']
         ]);
     }
 }
