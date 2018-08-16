@@ -20,18 +20,15 @@
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="https://cdn.rawgit.com/Daemonite/material/master/js/material.min.js" defer></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700"
           rel="stylesheet" type="text/css">
     <link href="https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css" rel="stylesheet"
           type="text/css">
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdn.rawgit.com/Daemonite/material/acad4df3/css/material.min.css" rel="stylesheet"
-          type="text/css">
 </head>
 <body>
 <div id="app">
