@@ -75,5 +75,4 @@
             </div>
         </div>
     </div>
-    <markdown-input name="Google"></markdown-input>
 @endsection

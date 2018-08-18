@@ -7,6 +7,7 @@
 <script>
     import SimpleMDE from 'simplemde';
     import marked from 'marked';
+    import axios from 'axios';
     import {Textcomplete} from 'textcomplete';
     import CodeMirrorEditor from 'textcomplete.codemirror';
 
@@ -162,6 +163,16 @@
                     },
                     replace: function (value) {
                         return '!' + value;
+                    }
+                }, {
+                    match: /(^|\s):(\w.+)$/,
+                    search: function (term, callback) {
+                        callback(function () {
+                            axios.get('/api/emoji')
+                        })
+                    },
+                    replace: function (value) {
+                        return value;
                     }
                 }]);
 
