@@ -23,3 +23,12 @@ Vue.component('passport-personal-tokens', require('./components/passport/Persona
 const app = new Vue({
     el: '#app'
 });
+
+Prism.plugins.autoloader.languages_path = 'js/vendor/prism/components';
+Prism.plugins.NormalizeWhitespace.setDefaults({
+    'remove-trailing': true,
+    'remove-indent': true,
+    'left-trim': true,
+    'right-trim': true,
+    'tabs-to-spaces': 4,
+});

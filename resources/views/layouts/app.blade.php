@@ -14,9 +14,11 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.materialdesignicons.com">
     <link rel="dns-prefetch" href="https://cdn.rawgit.com">
+    <link rel="dns-prefetch" href="https://cdn.polyfill.io">
 
     <!-- Scripts -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js" defer></script>
+    <script src="{{ asset('js/vendor/prism/prism.js') }}" defer></script>
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -28,6 +30,7 @@
           type="text/css">
 
     <!-- Styles -->
+    <link href="{{ asset('js/vendor/prism/prism.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>

@@ -8268,7 +8268,7 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         * Gets a list of languages acceptable by the client browser.
+         * Gets a list of components acceptable by the client browser.
          *
          * @return array Languages ordered in the user browser preferences
          * @static
