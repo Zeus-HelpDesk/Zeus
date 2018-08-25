@@ -63,6 +63,19 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @else
+                        @if(Auth::user()->staff)
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Admin') }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"
+                                       href="{{ url('/admin/locations') }}">{{ __('Locations') }}</a>
+                                </div>
+                            </li>
+                        @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -70,6 +83,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('/settings') }}">{{ __('Settings') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

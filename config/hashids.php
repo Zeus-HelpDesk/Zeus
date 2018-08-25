@@ -42,6 +42,11 @@ return [
             'salt' => config('app.name'),
             'length' => 8,
             'alphabet' => 'ABCDEFGHJKLMNPQRTUVWXYZ1234567890' // Remove lowercase, remove confusing letters such as O compared to 0
+        ],
+        'invite' => [
+            'salt' => config('app.name'),
+            'length' => 4,
+            'alphabet' => 'ABCDEFGHJKLMNPQRTUVWXYZ1234567890'
         ]
     ],
 

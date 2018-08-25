@@ -53,4 +53,21 @@ class District extends Model
     {
         return $this->hasMany('App\Ticket');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            // If an invite code is not set this will set one
+            if (empty($model->code)) {
+                $code = null;
+                while (Ticket::whereHash($code)->get()->count() > 0 || $code === null) {
+                    // Based on my calculations this code should provide 1,406,408,600,000 possible combinations, I might be wrong though
+                    $code = \Hashids::connection('invite')->encode(gmp_random_bits(11));
+                }
+                $model->code = $code;
+            }
+        });
+    }
 }

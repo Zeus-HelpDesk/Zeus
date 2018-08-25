@@ -130,9 +130,9 @@ class User extends Authenticatable
 
         static::creating(function ($model) {
             // Check if a user with the name is already in the database
-            if (!empty(User::whereName($model->name)->latest())) {
+            if (!empty(User::whereName($model->name)->latest()->get()->first())) {
                 $current_user = User::whereName($model->name)->latest()->get()->first();
-                $old_slug = explode('.', $current_user->slug);
+                $old_slug = explode('.', $current_user['slug']);
                 // Handle the new slug ending, if integer add 1 to the last user value otherwise just put a 1 at the end
                 $slug_end = is_numeric(end($old_slug)) ? end($old_slug) + 1 : 1;
                 $slug = str_slug($model->name . ' ' . $slug_end, '.');
