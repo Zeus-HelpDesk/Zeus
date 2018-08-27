@@ -6,5 +6,5 @@ use App\Http\Controllers\Controller;
 
 class BuildingController extends Controller
 {
-    //
+
 }

@@ -31,6 +31,7 @@
     "webuni/commonmark-table-extension": "^0.8.0"
   },
   "require-dev": {
+    "barryvdh/laravel-debugbar": "^3.1",
     "barryvdh/laravel-ide-helper": "^2.4",
     "codedungeon/phpunit-result-printer": "^0.19.12",
     "doctrine/dbal": "^2.8",

@@ -22,24 +22,25 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/settings');
 Route::post('/settings');
 
-Route::get('/user/:user');
+Route::get('/user/{user}');
 
 Route::group(['prefix' => '/ticket'], function () {
     Route::get('/create');
-    Route::get('/:ticket');
-    Route::get('/:ticket/edit');
-    Route::post('/:ticket/edit');
+    Route::get('/{ticket}');
+    Route::get('/{ticket}/edit');
+    Route::post('/{ticket}/edit');
 });
 
 
 Route::group(['prefix' => '/admin'], function () {
     Route::get('/');
     Route::group(['prefix' => '/locations'], function () {
-        Route::get('/');
-        Route::get('/:district');
-        Route::get('/:district/edit');
-        Route::get('/:district/:building');
-        Route::get('/:district/:building/edit');
+        Route::get('/', 'Locations\DistrictController@index');
+        Route::get('/{district}', 'Locations\DistrictController@single');
+        Route::get('/{district}/edit', 'Locations\DistrictController@edit');
+        Route::post('/{district}/edit', 'Locations\DistrictController@update');
+        Route::get('/{district}/{building}');
+        Route::get('/{district}/{building}/edit');
     });
     Route::get('/help-desk/status');
     Route::get('/help-desk/category');
