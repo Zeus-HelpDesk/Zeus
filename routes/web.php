@@ -32,7 +32,7 @@ Route::group(['prefix' => '/ticket'], function () {
 });
 
 
-Route::group(['prefix' => '/admin'], function () {
+Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff']], function () {
     Route::get('/');
     Route::group(['prefix' => '/locations'], function () {
         Route::get('/', 'Locations\DistrictController@index');

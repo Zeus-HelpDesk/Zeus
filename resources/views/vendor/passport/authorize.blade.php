@@ -40,7 +40,7 @@
 <body class="passport-authorize">
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <div class="card card-default">
                 <div class="card-header">
                     Authorization Request

@@ -10,12 +10,12 @@ class DistrictController extends Controller
 {
     public function index()
     {
-        return view('admin.locations.index', District::all());
+        return view('admin.locations.index', ['districts' => District::all()]);
     }
 
     public function single(District $district)
     {
-        return view('admin.locations.district', $district);
+        return view('admin.locations.district', ['district' => $district]);
     }
 
     public function edit(District $district)
