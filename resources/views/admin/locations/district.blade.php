@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Buildings') }}</div>
+                    <div class="card-header">{{ __('Buildings') }} <a
+                                href="{{ url('/admin/locations/' . $district->id . '/create') }}"
+                                class="btn btn-sm btn-outline-primary float-right">Create Building</a></div>
                     <div class="card-body table-responsive">
                         <table class="table">
                             <thead>
@@ -25,9 +27,11 @@
                                     <td>{{ $building->code }}</td>
                                     <td>{{ $building->users()->count() }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-outline-primary"><i
+                                        <a href="{{ url('/admin/locations/' . $district->id . '/' . $building->id) }}"
+                                           class="btn btn-sm btn-outline-primary"><i
                                                     class="mdi mdi-eye"></i></a>
-                                        <a href="" class="btn btn-sm btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{ url('/admin/locations/' . $district->id . '/' . $building->id . '/edit') }}"
+                                           class="btn btn-sm btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

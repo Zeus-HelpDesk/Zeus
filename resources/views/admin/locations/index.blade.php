@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Districts') }}</div>
+                    <div class="card-header">{{ __('Districts') }} <a href="{{ url('/admin/locations/create') }}"
+                                                                      class="btn btn-sm btn-outline-primary float-right">Create
+                            District</a></div>
                     <div class="card-body table-responsive">
                         <table class="table">
                             <thead>
