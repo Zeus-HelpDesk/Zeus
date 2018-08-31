@@ -30,6 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class District extends Model
 {
+
+    protected $fillable = ['name', 'address', 'phone_number', 'phone_extension', 'code'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

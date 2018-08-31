@@ -32,6 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Building extends Model
 {
+    protected $fillable = ['name', 'address', 'phone_number', 'phone_extension', 'code', 'district_id'];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -18,6 +18,30 @@ class DistrictController extends Controller
         return view('admin.locations.district', ['district' => $district]);
     }
 
+    public function create()
+    {
+        return view('admin.locations.create.district');
+    }
+
+    public function insert(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phone_number' => 'required|string',
+            'phone_extension' => 'required|string',
+            'code' => 'nullable|string'
+        ]);
+        $district = District::create([
+            'name' => $request->input('name'),
+            'address' => $request->input('address'),
+            'phone_number' => $request->input('phone_number'),
+            'phone_extension' => $request->input('phone_extension'),
+            'code' => $request->input('code')
+        ]);
+        return redirect('/admin/locations/' . $district->id);
+    }
+
     public function edit(District $district)
     {
         return view('admin.locations.edit.district', $district);
@@ -26,10 +50,10 @@ class DistrictController extends Controller
     public function update(Request $request, District $district)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'address' => 'required',
-            'phone_number' => 'required',
-            'phone_extension' => 'required'
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phone_number' => 'required|string',
+            'phone_extension' => 'required|string'
         ]);
         tap($district)->update($request->only(['name', 'address', 'phone_number', 'phone_extension']));
         return redirect('/admin/locations/' . $district->id);

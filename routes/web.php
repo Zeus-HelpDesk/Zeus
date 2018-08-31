@@ -38,8 +38,8 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff']], function
     Route::get('/');
     Route::group(['prefix' => '/locations'], function () {
         Route::get('/', 'Locations\DistrictController@index');
-        Route::get('/create');
-        Route::post('/create');
+        Route::get('/create', 'Locations\DistrictController@create');
+        Route::post('/create', 'Locations\DistrictController@insert');
         Route::get('/{district}', 'Locations\DistrictController@single');
         Route::get('/{district}/edit', 'Locations\DistrictController@edit');
         Route::post('/{district}/edit', 'Locations\DistrictController@update');

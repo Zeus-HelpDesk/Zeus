@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Horizon::auth(function ($request) {
+            if (!$request->user()) {
+                return false;
+            } else if ($request->user()->staff) {
+                return true;
+            } else {
+                return false;
+            }
+        });
     }
 
     /**
