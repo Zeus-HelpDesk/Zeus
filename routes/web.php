@@ -43,11 +43,11 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff']], function
         Route::get('/{district}', 'Locations\DistrictController@single');
         Route::get('/{district}/edit', 'Locations\DistrictController@edit');
         Route::post('/{district}/edit', 'Locations\DistrictController@update');
-        Route::get('/{district}/create');
-        Route::post('/{district}/create');
-        Route::get('/{district}/{building}');
-        Route::get('/{district}/{building}/edit');
-        Route::post('/{district}/{building}/edit');
+        Route::get('/{district}/create', 'Locations\BuildingController@create');
+        Route::post('/{district}/create', 'Locations\BuildingController@insert');
+        Route::get('/{district}/{building}', 'Locations\BuildingController@index');
+        Route::get('/{district}/{building}/edit', 'Locations\BuildingController@edit');
+        Route::post('/{district}/{building}/edit', 'Locations\BuildingController@update');
     });
     Route::get('/help-desk/status');
     Route::get('/help-desk/category');
