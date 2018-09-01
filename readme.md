@@ -3,6 +3,16 @@
 
 Zues is a open source, fast, reliable help desk software designed for contract IT departments that have multiple clients each with multiple buildings. This software can scale across hundreds of servers without issue.
 
+#### Requirements
+- PHP 7.2 or later
+    - GMP Extension
+    - MbString Extension
+    - Zip Extension
+    - Tokenizer Extension
+    - Xml extension
+    - JSON extension
+    - CURL extension
+
 #### Getting Support
 Because this project is open source there is no real-time support readily available, if this is a requirement for your use do not use this software, priority support via e-mail may come at a future date.
 
