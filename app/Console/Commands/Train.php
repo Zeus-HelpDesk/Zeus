@@ -13,7 +13,7 @@ class Train extends Command
      *
      * @var string
      */
-    protected $signature = 'train';
+    protected $signature = 'zeus:train';
 
     /**
      * The console command description.
@@ -46,12 +46,12 @@ class Train extends Command
         foreach ($tickets as $ticket) {
             $priority_classifier->learn($ticket->description, $ticket->priority_id);
         }
-        \Storage::put(storage_path('training/priorities.json'), $priority_classifier->toJson());
+        \Storage::put('/training/priorities.json', $priority_classifier->toJson());
         // Teach categories
         foreach ($tickets as $ticket) {
             $category_classifier->learn($ticket->description, $ticket->category_id);
         }
-        \Storage::put(storage_path('training/categories.json'), $category_classifier->toJson());
+        \Storage::put('/training/categories.json', $category_classifier->toJson());
 
         $this->info('Trained successfully!');
     }

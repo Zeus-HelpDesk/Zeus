@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,7 +50,7 @@ use Laravel\Passport\HasApiTokens;
  */
 class User extends Authenticatable
 {
-    use Notifiable, ThrottlesLogins, HasApiTokens;
+    use Notifiable, ThrottlesLogins, HasApiTokens, MustVerifyEmail;
 
     /**
      * The attributes that are mass assignable.
