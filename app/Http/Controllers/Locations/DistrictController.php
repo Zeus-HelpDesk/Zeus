@@ -28,9 +28,9 @@ class DistrictController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'address' => 'required|string',
-            'phone_number' => 'required|string',
-            'phone_extension' => 'required|string',
-            'code' => 'nullable|string'
+            'phone_number' => 'nullable|string',
+            'phone_extension' => 'nullable|string',
+            'code' => 'nullable|min:4|max:4|string'
         ]);
         $district = District::create([
             'name' => $request->input('name'),
@@ -52,8 +52,8 @@ class DistrictController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'address' => 'required|string',
-            'phone_number' => 'required|string',
-            'phone_extension' => 'required|string'
+            'phone_number' => 'nullable|string',
+            'phone_extension' => 'nullable|string',
         ]);
         tap($district)->update($request->only(['name', 'address', 'phone_number', 'phone_extension']));
         return redirect('/admin/locations/' . $district->id);

@@ -13,9 +13,9 @@ class BuildingController extends Controller
         return view('admin.locations.building', ['building' => $building]);
     }
 
-    public function create()
+    public function create(District $district)
     {
-        return view('admin.locations.create.building');
+        return view('admin.locations.create.building', ['district' => $district]);
     }
 
     public function insert()
