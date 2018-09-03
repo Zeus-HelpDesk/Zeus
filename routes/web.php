@@ -36,6 +36,7 @@ Route::group(['prefix' => '/ticket'], function () {
  */
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff']], function () {
     Route::get('/');
+    // Manage locations
     Route::group(['prefix' => '/locations'], function () {
         Route::get('/', 'Locations\DistrictController@index');
         Route::get('/create', 'Locations\DistrictController@create');
@@ -48,6 +49,15 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff']], function
         Route::get('/{district}/{building}', 'Locations\BuildingController@index');
         Route::get('/{district}/{building}/edit', 'Locations\BuildingController@edit');
         Route::post('/{district}/{building}/edit', 'Locations\BuildingController@update');
+    });
+    // Manage Users
+    Route::group(['prefix' => '/users'], function () {
+        Route::get('/');
+        Route::get('/create');
+        Route::post('/create');
+        Route::get('/{user}');
+        Route::get('/{user}/edit');
+        Route::post('/{user}/edit');
     });
     Route::get('/help-desk/status');
     Route::get('/help-desk/category');
