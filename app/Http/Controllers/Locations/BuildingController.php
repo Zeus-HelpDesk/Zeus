@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Locations;
 use App\Building;
 use App\District;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BuildingController extends Controller
 {
@@ -18,18 +19,40 @@ class BuildingController extends Controller
         return view('admin.locations.create.building', ['district' => $district]);
     }
 
-    public function insert()
+    public function insert(Request $request, District $district)
     {
-
+        $this->validate($request, [
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phone_number' => 'nullable|string',
+            'phone_extension' => 'nullable|string',
+            'code' => 'nullable|string|max:4|min:4'
+        ]);
+        $building = Building::create([
+            'name' => $request->input('name'),
+            'address' => $request->input('address'),
+            'phone_number' => $request->input('phone_number'),
+            'phone_extension' => $request->input('phone_extension'),
+            'code' => $request->input('code'),
+            'district_id' => $district->id
+        ]);
+        return redirect(`/admin/locations/${$district->id}/${$building->id}`);
     }
 
-    public function edit()
+    public function edit(District $district, Building $building)
     {
-        return view('admin.locations.edit.building');
+        return view('admin.locations.edit.building', ['district' => $district, 'building' => $building]);
     }
 
-    public function update()
+    public function update(Request $request, District $district, Building $building)
     {
-
+        $this->validate($request, [
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phone_number' => 'nullable|string',
+            'phone_extension' => 'nullable|string'
+        ]);
+        tap($building)->update($request->only(['name', 'address', 'phone_number', 'phone_extension']));
+        return redirect(`/admin/locations/${$district->id}/${$building->id}`);
     }
 }

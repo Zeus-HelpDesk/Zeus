@@ -18,3 +18,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/emoji', 'EmojiController@index');
+
+Route::group(['prefix' => '/webhooks'], function () {
+    Route::post('/email/postal');
+    Route::post('/email/sendgrid');
+    Route::post('/email/mailgun');
+});
