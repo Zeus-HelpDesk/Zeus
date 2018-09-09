@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header"></div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url(`/admin/locations/${$district->id}/create`) }}"
+                        <form method="POST" action="{{ url("/admin/locations/$district->id/create") }}"
                               aria-label="{{ __('Create Building') }}">
                             @csrf
 

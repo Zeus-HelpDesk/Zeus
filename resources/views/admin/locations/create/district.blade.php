@@ -52,7 +52,7 @@
                                 <div class="col-md-6">
                                     <input id="phone_number" type="text"
                                            class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}"
-                                           name="phone_number" required>
+                                           name="phone_number">
 
                                     @if ($errors->has('phone_number'))
                                         <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                                 <div class="col-md-6">
                                     <input id="phone_extension" type="text"
                                            class="form-control{{ $errors->has('phone_extension') ? ' is-invalid' : '' }}"
-                                           name="phone_extension" required>
+                                           name="phone_extension">
 
                                     @if ($errors->has('phone_extension'))
                                         <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                 <div class="col-md-6">
                                     <input id="code" type="text"
                                            class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}"
-                                           name="code" required>
+                                           name="code">
 
                                     @if ($errors->has('code'))
                                         <span class="invalid-feedback" role="alert">

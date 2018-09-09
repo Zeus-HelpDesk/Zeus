@@ -11,7 +11,7 @@ class BuildingController extends Controller
 {
     public function index(District $district, Building $building)
     {
-        return view('admin.locations.building', ['building' => $building]);
+        return view('admin.locations.building', ['district' => $district, 'building' => $building]);
     }
 
     public function create(District $district)
@@ -26,7 +26,7 @@ class BuildingController extends Controller
             'address' => 'required|string',
             'phone_number' => 'nullable|string',
             'phone_extension' => 'nullable|string',
-            'code' => 'nullable|string|max:4|min:4'
+            'code' => 'nullable|string|max:4|min:4|unique:buildings,code'
         ]);
         $building = Building::create([
             'name' => $request->input('name'),
@@ -36,7 +36,7 @@ class BuildingController extends Controller
             'code' => $request->input('code'),
             'district_id' => $district->id
         ]);
-        return redirect(`/admin/locations/${$district->id}/${$building->id}`);
+        return redirect("/admin/locations/$district->id/$building->id");
     }
 
     public function edit(District $district, Building $building)

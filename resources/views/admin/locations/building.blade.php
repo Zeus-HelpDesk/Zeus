@@ -5,8 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('Users') }} <a class="btn btn-sm btn-outline-primary"
-                                                                  href="">{{ __('Create User') }}</a></div>
+                    <div class="card-header">{{ __('Users') }} <a class="btn btn-sm btn-outline-primary float-right"
+                                                                  href="{{ url("/admin/locations/$district->id/$building->id/create") }}">{{ __('Create User') }}</a>
+                    </div>
                     <div class="card-body table-responsive">
                         <table class="table">
                             <thead>
