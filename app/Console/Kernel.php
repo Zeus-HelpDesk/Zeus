@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('horizon:snapshot')->everyFiveMinutes();
-        $schedule->command('train')->weekly();
+        $schedule->command('zeus:train')->weekly();
     }
 
     /**
