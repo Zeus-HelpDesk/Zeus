@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header"></div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url(`/admin/locations/${$district->id}/edit`) }}"
+                        <form method="POST" action="{{ url("/admin/locations/$district->id/edit") }}"
                               aria-label="{{ __('Edit District') }}">
                             @csrf
 
@@ -18,7 +18,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                           name="name" value="{{ old('name') }}" required autofocus>
+                                           name="name" value="{{ old('name') ?? $district->name }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
                                 <div class="col-md-6">
                                     <input id="address" type="text"
                                            class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"
-                                           name="address" required>
+                                           name="address" value="{{ old('address') ?? $district->address }}" required>
 
                                     @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
@@ -52,7 +52,8 @@
                                 <div class="col-md-6">
                                     <input id="phone_number" type="text"
                                            class="form-control{{ $errors->has('phone_number') ? ' is-invalid' : '' }}"
-                                           name="phone_number" required>
+                                           name="phone_number"
+                                           value="{{ old('phone_number') ?? $district->phone_number }}">
 
                                     @if ($errors->has('phone_number'))
                                         <span class="invalid-feedback" role="alert">
@@ -69,7 +70,8 @@
                                 <div class="col-md-6">
                                     <input id="phone_extension" type="text"
                                            class="form-control{{ $errors->has('phone_extension') ? ' is-invalid' : '' }}"
-                                           name="phone_extension" required>
+                                           name="phone_extension"
+                                           value="{{ old('phone_extension') ?? $district->phone_extension }}">
 
                                     @if ($errors->has('phone_extension'))
                                         <span class="invalid-feedback" role="alert">

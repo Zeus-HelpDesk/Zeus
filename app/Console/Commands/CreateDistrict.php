@@ -48,7 +48,7 @@ class CreateDistrict extends Command
             'address' => 'required|string',
             'phone_number' => 'nullable|string',
             'phone_extension' => 'nullable|string',
-            'code' => 'nullable|string|min:4|max:4'
+            'code' => 'nullable|string|min:4|max:4|unique:districts,code'
         ]);
 
         if ($validate->fails()) {

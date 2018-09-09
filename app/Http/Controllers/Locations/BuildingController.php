@@ -53,6 +53,6 @@ class BuildingController extends Controller
             'phone_extension' => 'nullable|string'
         ]);
         tap($building)->update($request->only(['name', 'address', 'phone_number', 'phone_extension']));
-        return redirect(`/admin/locations/${$district->id}/${$building->id}`);
+        return redirect("/admin/locations/$district->id/$building->id");
     }
 }

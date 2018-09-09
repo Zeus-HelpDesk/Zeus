@@ -24,7 +24,7 @@ Route::post('/settings');
 
 Route::get('/user/{user}');
 
-Route::group(['prefix' => '/ticket'], function () {
+Route::group(['prefix' => '/ticket', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/create');
     Route::get('/{ticket}');
     Route::get('/{ticket}/edit');
@@ -34,7 +34,7 @@ Route::group(['prefix' => '/ticket'], function () {
 /*
  * These routes are only accessible to IT staff
  */
-Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff']], function () {
+Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff', 'verified']], function () {
     Route::get('/');
     // Manage locations
     Route::group(['prefix' => '/locations'], function () {

@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('building_id');
             $table->boolean('staff')->default(false);
             $table->rememberToken();
-            $table->timestampTz('email_verified_at');
+            $table->timestampTz('email_verified_at')->nullable();
             $table->timestampsTz();
 
             // When a district is deleted so are all the users that are part of that district, same goes for buildings

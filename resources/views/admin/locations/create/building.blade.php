@@ -71,9 +71,9 @@
                                            class="form-control{{ $errors->has('phone_extension') ? ' is-invalid' : '' }}"
                                            name="phone_extension" value="{{ old('phone_extension') }}">
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('phone_extension'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('phone_extension') }}</strong>
                                     </span>
                                     @endif
                                 </div>

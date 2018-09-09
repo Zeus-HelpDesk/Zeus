@@ -44,13 +44,14 @@ class CreateBuilding extends Command
         $building['phone_number'] = $this->ask('What is the buildings phone number? (Optional)', null);
         $building['phone_extension'] = $this->ask('What is the buildings phone extension? (Optional)', null);
         $building['district'] = $this->choice('Which district is this building part of?', District::pluck('name')->toArray(), 0);
+        $building['code'] = $this->ask('What should the district code be? (Optional)', null);
 
         $validate = \Validator::make($building, [
             'name' => 'required|string',
             'address' => 'required|string',
             'phone_number' => 'nullable|string',
             'phone_extension' => 'nullable|string',
-            'code' => 'nullable|string|min:4|max:4'
+            'code' => 'nullable|string|min:4|max:4|unique:buildings,code'
         ]);
 
         if ($validate->fails()) {
@@ -64,6 +65,7 @@ class CreateBuilding extends Command
         $this->info("Phone Number: $building->phone_number");
         $this->info("Phone Extension: $building->phone_extension");
         $this->info("District: $building->district");
+        $this->info("Code: $building->code");
         if ($this->confirm('Is this data correct?')) {
             $district = District::whereName($building->district)->first();
             $building->district_id = $district->id;
