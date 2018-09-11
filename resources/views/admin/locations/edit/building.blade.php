@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header"></div>
+                    <div class="card-header">{{ __('Edit Building') }}</div>
                     <div class="card-body">
                         <form method="POST"
                               action="{{ url("/admin/locations/$district->id/$building->id/edit") }}"

@@ -32,14 +32,14 @@ class DistrictController extends Controller
             'phone_extension' => 'nullable|string',
             'code' => 'nullable|min:4|max:4|string|unique:districts,code'
         ]);
-        $district = District::create([
+        District::create([
             'name' => $request->input('name'),
             'address' => $request->input('address'),
             'phone_number' => $request->input('phone_number'),
             'phone_extension' => $request->input('phone_extension'),
             'code' => $request->input('code')
         ]);
-        return redirect("/admin/locations/$district->id");
+        return redirect("/admin/locations");
     }
 
     public function edit(District $district)
@@ -56,6 +56,6 @@ class DistrictController extends Controller
             'phone_extension' => 'nullable|string',
         ]);
         tap($district)->update($request->only(['name', 'address', 'phone_number', 'phone_extension']));
-        return redirect("/admin/locations/$district->id");
+        return redirect("/admin/locations");
     }
 }

@@ -73,6 +73,8 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
                                        href="{{ url('/admin/locations') }}">{{ __('Locations') }}</a>
+                                    <a class="dropdown-item"
+                                       href="{{ url('/admin/users') }}">{{ __('Users') }}</a>
                                 </div>
                             </li>
                         @endif

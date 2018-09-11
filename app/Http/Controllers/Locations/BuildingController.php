@@ -28,7 +28,7 @@ class BuildingController extends Controller
             'phone_extension' => 'nullable|string',
             'code' => 'nullable|string|max:4|min:4|unique:buildings,code'
         ]);
-        $building = Building::create([
+        Building::create([
             'name' => $request->input('name'),
             'address' => $request->input('address'),
             'phone_number' => $request->input('phone_number'),
@@ -36,7 +36,7 @@ class BuildingController extends Controller
             'code' => $request->input('code'),
             'district_id' => $district->id
         ]);
-        return redirect("/admin/locations/$district->id/$building->id");
+        return redirect("/admin/locations/$district->id");
     }
 
     public function edit(District $district, Building $building)
@@ -53,6 +53,6 @@ class BuildingController extends Controller
             'phone_extension' => 'nullable|string'
         ]);
         tap($building)->update($request->only(['name', 'address', 'phone_number', 'phone_extension']));
-        return redirect("/admin/locations/$district->id/$building->id");
+        return redirect("/admin/locations/$district->id");
     }
 }

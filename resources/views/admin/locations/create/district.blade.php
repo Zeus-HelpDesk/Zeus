@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header"></div>
+                    <div class="card-header">{{ __('Create District') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ url('/admin/locations/create') }}"
                               aria-label="{{ __('Create District') }}">
