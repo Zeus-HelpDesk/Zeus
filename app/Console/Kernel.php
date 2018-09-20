@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('horizon:snapshot')->everyFiveMinutes();
         $schedule->command('zeus:train')->weekly();
+        $schedule->command('backup:clean')->daily();
+        $schedule->command('backup:run --only-db')->daily();
     }
 
     /**

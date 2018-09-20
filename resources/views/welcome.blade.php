@@ -96,6 +96,7 @@
         </div>
 
         <div class="links">
+            <a href="{{ url('/docs/') }}">Documentation</a>
             <a href="https://git.kilgoretech.com/matthew/Zeus">Source Code</a>
             <a href="https://www.kilgoretech.com">My Site</a>
         </div>

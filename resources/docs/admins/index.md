@@ -1,2 +1,5 @@
 - ## Get Started
     - [Overview](/docs/{{version}}/overview)
+- ## Backups
+    - [Local Storage](/docs/{{version}}/backups-local)
+    - [Google Drive Storage](/docs/{{version}}/backups-gdrive)

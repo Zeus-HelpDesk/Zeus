@@ -71,7 +71,7 @@ return [
 
     'cache' => [
         'enabled' => false,
-        'period' => 5
+        'period' => 10
     ],
 
     /*
@@ -129,10 +129,16 @@ return [
     |
     |
     */
-
     'seo' => [
         'author' => 'Matthew Rhodes',
         'description' => 'Zeus Documentation',
-        'keywords' => 'help-desk,documentation,zeus'
+        'keywords' => 'docs,doc,documentation,help-desk,zeus',
+        'og' => [
+            'title' => 'Zeus - Documentation',
+            'type' => 'article',
+            'url' => '',
+            'image' => '',
+            'description' => '',
+        ]
     ]
 ];

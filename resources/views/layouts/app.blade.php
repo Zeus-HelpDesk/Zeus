@@ -98,6 +98,11 @@
                                 </form>
                             </div>
                         </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/docs') }}"><i
+                                            class="mdi mdi-help-circle-outline"></i></a>
+                            </li>
                     @endguest
                 </ul>
             </div>

@@ -37,7 +37,7 @@ return [
     | may even configure multiple disks of the same driver. Defaults have
     | been setup for each driver as an example of the required options.
     |
-    | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace"
+    | Supported Drivers: "local", "ftp", "sftp", "s3", "rackspace", "google"
     |
     */
 
@@ -62,6 +62,22 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+        ],
+
+        'google' => [
+            'driver' => 'google',
+            'clientId' => env('GDRIVE_CLIENT_ID'),
+            'clientSecret' => env('GDRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GDRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GDRIVE_FOLDER_ID'),
+        ],
+
+        'google_backup' => [
+            'driver' => 'google',
+            'clientId' => env('GDRIVE_CLIENT_ID'),
+            'clientSecret' => env('GDRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GDRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GDRIVE_BACKUP_FOLDER_ID'),
         ],
 
     ],
