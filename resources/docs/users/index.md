@@ -2,11 +2,13 @@
     - [Overview](/docs/{{version}}/overview)
 
 - ## Account
-    - [Registering](/docs/{{version}}/registering)
-    - [Logging In](/docs/{{version}}/login)
-    - [Activating Account](/docs/{{version}}/activating)
+    - [Register Account](/docs/{{version}}/user-register)
+    - [Logging In](/docs/{{version}}/user-login)
+    - [Activating Account](/docs/{{version}}/user-activating)
+    - [Update Settings](/docs/{{version}}/user-settings)
 
 - ## Tickets
     - [Creating](/docs/{{version}}/ticket-create)
     - [Updating](/docs/{{version}}/ticket-update)
     - [Commenting](/docs/{{version}}/ticket-comment)
+    - [Closing](/docs/{{version}}/ticket-closing)

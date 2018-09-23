@@ -122,21 +122,22 @@
         },
         {
           "name": "binarytorch/larecipe",
-          "version": "v1.2.0",
+          "version": "v1.2.4",
           "source": {
             "type": "git",
             "url": "https://github.com/saleem-hadad/larecipe.git",
-            "reference": "27959deb1cd2f9bb5f8f423acf33ec9e0316e845"
+            "reference": "da14a39b070f8474aaee03b8dbd50ebed78c4e82"
           },
           "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/saleem-hadad/larecipe/zipball/27959deb1cd2f9bb5f8f423acf33ec9e0316e845",
-            "reference": "27959deb1cd2f9bb5f8f423acf33ec9e0316e845",
+            "url": "https://api.github.com/repos/saleem-hadad/larecipe/zipball/da14a39b070f8474aaee03b8dbd50ebed78c4e82",
+            "reference": "da14a39b070f8474aaee03b8dbd50ebed78c4e82",
             "shasum": ""
           },
           "require": {
             "erusev/parsedown-extra": "^0.7.1",
             "illuminate/support": "~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+            "illuminate/view": "~5.4.0|~5.5.0|~5.6.0|~5.7.0",
             "symfony/dom-crawler": "^4.1"
           },
           "require-dev": {
@@ -175,7 +176,7 @@
             "laravel",
             "markdown"
           ],
-          "time": "2018-09-19T23:30:39+00:00"
+          "time": "2018-09-23T03:03:48+00:00"
         },
       {
             "name": "cakephp/chronos",
@@ -1460,16 +1461,16 @@
         },
         {
             "name": "laravel/framework",
-          "version": "v5.7.4",
+          "version": "v5.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-              "reference": "f6e8f6562120e0063313e81716666cfcd362569b"
+              "reference": "ddb87a87471b452456fbbe1365e1b9ae55483515"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/laravel/framework/zipball/f6e8f6562120e0063313e81716666cfcd362569b",
-              "reference": "f6e8f6562120e0063313e81716666cfcd362569b",
+              "url": "https://api.github.com/repos/laravel/framework/zipball/ddb87a87471b452456fbbe1365e1b9ae55483515",
+              "reference": "ddb87a87471b452456fbbe1365e1b9ae55483515",
                 "shasum": ""
             },
             "require": {
@@ -1597,7 +1598,7 @@
                 "framework",
                 "laravel"
             ],
-          "time": "2018-09-18T13:34:05+00:00"
+          "time": "2018-09-20T14:03:45+00:00"
         },
         {
             "name": "laravel/horizon",
@@ -2412,16 +2413,16 @@
       },
       {
             "name": "nesbot/carbon",
-            "version": "1.33.0",
+        "version": "1.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "55667c1007a99e82030874b1bb14d24d07108413"
+              "reference": "1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/55667c1007a99e82030874b1bb14d24d07108413",
-                "reference": "55667c1007a99e82030874b1bb14d24d07108413",
+              "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33",
+              "reference": "1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33",
                 "shasum": ""
             },
             "require": {
@@ -2463,7 +2464,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-08-07T08:39:47+00:00"
+        "time": "2018-09-20T19:36:25+00:00"
         },
         {
             "name": "niiknow/bayes",
@@ -2703,16 +2704,16 @@
         },
         {
             "name": "paragonie/sodium_compat",
-          "version": "v1.6.5",
+          "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/sodium_compat.git",
-              "reference": "aaaf71f3f7713248703c23cfbd1189ce1215f57f"
+              "reference": "7b73005be3c224f12c47bd75a23ce24b762e47e8"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/aaaf71f3f7713248703c23cfbd1189ce1215f57f",
-              "reference": "aaaf71f3f7713248703c23cfbd1189ce1215f57f",
+              "url": "https://api.github.com/repos/paragonie/sodium_compat/zipball/7b73005be3c224f12c47bd75a23ce24b762e47e8",
+              "reference": "7b73005be3c224f12c47bd75a23ce24b762e47e8",
                 "shasum": ""
             },
             "require": {
@@ -2781,7 +2782,7 @@
                 "secret-key cryptography",
                 "side-channel resistant"
             ],
-          "time": "2018-09-14T00:17:10+00:00"
+          "time": "2018-09-22T03:59:58+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -6149,16 +6150,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v4.0.0",
+          "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "5facdb15f5952ed28c711e89b30adce74fa388c7"
+              "reference": "3e98dc496a1408b6a8211ee019f65dfb1da71299"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/5facdb15f5952ed28c711e89b30adce74fa388c7",
-                "reference": "5facdb15f5952ed28c711e89b30adce74fa388c7",
+              "url": "https://api.github.com/repos/laravel/dusk/zipball/3e98dc496a1408b6a8211ee019f65dfb1da71299",
+              "reference": "3e98dc496a1408b6a8211ee019f65dfb1da71299",
                 "shasum": ""
             },
             "require": {
@@ -6206,7 +6207,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2018-08-12T01:53:48+00:00"
+          "time": "2018-09-20T20:04:55+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -6925,16 +6926,16 @@
         },
         {
             "name": "nunomaduro/larastan",
-          "version": "v0.2.10",
+          "version": "v0.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-              "reference": "661e2f91021c739bf1ee04604fb717de94f1adca"
+              "reference": "92450cbdb5d04dc650af3a5619946f5abd4e7b9f"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/661e2f91021c739bf1ee04604fb717de94f1adca",
-              "reference": "661e2f91021c739bf1ee04604fb717de94f1adca",
+              "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/92450cbdb5d04dc650af3a5619946f5abd4e7b9f",
+              "reference": "92450cbdb5d04dc650af3a5619946f5abd4e7b9f",
                 "shasum": ""
             },
             "require": {
@@ -6988,7 +6989,7 @@
                 "php",
                 "static analysis"
             ],
-          "time": "2018-09-12T11:39:47+00:00"
+          "time": "2018-09-21T20:01:32+00:00"
         },
         {
             "name": "ocramius/package-versions",

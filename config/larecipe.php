@@ -52,7 +52,7 @@ return [
     */
 
     'settings' => [
-        'auth' => false,
+        'auth' => true,
         'ga_id' => ''
     ],
 
@@ -71,7 +71,31 @@ return [
 
     'cache' => [
         'enabled' => false,
-        'period' => 10
+        'period' => 5
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Search
+    |--------------------------------------------------------------------------
+    |
+    | Here you can add configure the search functionality of your docs.
+    | You can choose the default engine of your search from the list
+    | However, you can also enable/disable the search's visibility
+    |
+    | Supported Search Engines: 'algolia'
+    |
+    */
+
+    'search' => [
+        'enabled' => false,
+        'default' => 'algolia',
+        'engines' => [
+            'algolia' => [
+                'key' => '',
+                'index' => ''
+            ]
+        ]
     ],
 
     /*
@@ -109,7 +133,14 @@ return [
         'logo' => '', // e.g.: /images/logo.svg
         'fav' => '', // e.g.: /fav.png
         'theme' => 'dark',
+        'code' => 'dark',
         'back_to_top' => true,
+        'show_side_bar' => true,
+        'colors' => [
+            'primary' => '#787AF6',
+            'secondary' => '#2b9cf2',
+            'selection' => '#f4f5f7'
+        ],
         'additional_css' => [
             //'css/custom.css',
         ],
@@ -129,16 +160,40 @@ return [
     |
     |
     */
+
     'seo' => [
         'author' => 'Matthew Rhodes',
         'description' => 'Zeus Documentation',
-        'keywords' => 'docs,doc,documentation,help-desk,zeus',
+        'keywords' => 'Zeus,help-desk,documentation',
         'og' => [
-            'title' => 'Zeus - Documentation',
+            'title' => 'Zeus Documentation',
             'type' => 'article',
             'url' => '',
             'image' => '',
             'description' => '',
+        ]
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Forum
+    |--------------------------------------------------------------------------
+    |
+    | Giving a chance to your users to post thier questions or feedback
+    | directly on your docs, is pretty nice way to engage them more.
+    | However, you can also enable/disable the forum's visibility.
+    |
+    | Supported Services: 'disqus'
+    |
+    */
+
+    'forum' => [
+        'enabled' => false,
+        'default' => 'disqus',
+        'services' => [
+            'disqus' => [
+                'site_name' => '', // yoursite.disqus.com
+            ]
         ]
     ]
 ];
