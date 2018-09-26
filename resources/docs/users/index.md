@@ -12,3 +12,7 @@
     - [Updating](/docs/{{version}}/ticket-update)
     - [Commenting](/docs/{{version}}/ticket-comment)
     - [Closing](/docs/{{version}}/ticket-closing)
+
+- ## Acknowledgements
+    - [Contributors](/docs/{{version}}/contributors)
+    - [Source Code](https://git.kilgoretech.com/matthew/Zeus)

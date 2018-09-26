@@ -35,6 +35,7 @@ return [
         'default' => 'users',
         'published' => [
             'users',
+            'site-admins',
             'admins'
         ]
     ],
