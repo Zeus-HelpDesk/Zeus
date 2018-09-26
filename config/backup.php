@@ -78,7 +78,6 @@ return [
              */
             'disks' => [
                 'local',
-                'google_backup'
             ],
         ],
 

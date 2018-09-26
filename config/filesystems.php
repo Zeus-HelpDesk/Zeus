@@ -63,23 +63,6 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
-
-        'google' => [
-            'driver' => 'google',
-            'clientId' => env('GDRIVE_CLIENT_ID'),
-            'clientSecret' => env('GDRIVE_CLIENT_SECRET'),
-            'refreshToken' => env('GDRIVE_REFRESH_TOKEN'),
-            'folderId' => env('GDRIVE_FOLDER_ID'),
-        ],
-
-        'google_backup' => [
-            'driver' => 'google',
-            'clientId' => env('GDRIVE_CLIENT_ID'),
-            'clientSecret' => env('GDRIVE_CLIENT_SECRET'),
-            'refreshToken' => env('GDRIVE_REFRESH_TOKEN'),
-            'folderId' => env('GDRIVE_BACKUP_FOLDER_ID'),
-        ],
-
     ],
 
 ];
