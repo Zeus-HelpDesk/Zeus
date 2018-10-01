@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('district_id');
             $table->integer('building_id');
             $table->boolean('staff')->default(false);
+            $table->integer('api_limit')->default(60);
             $table->rememberToken();
             $table->timestampTz('email_verified_at')->nullable();
             $table->timestampsTz();

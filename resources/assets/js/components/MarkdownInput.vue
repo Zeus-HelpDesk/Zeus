@@ -1,6 +1,6 @@
 <template>
     <div class="markdown-editor">
-        <textarea></textarea>
+        <textarea :name="boxName" :id="boxId"></textarea>
     </div>
 </template>
 
@@ -31,8 +31,20 @@
             sanitize: {
                 type: Boolean,
                 default() {
-                    return false;
+                    return true;
                 },
+            },
+            boxName: {
+                type: String,
+                default() {
+                    return '';
+                }
+            },
+            boxId: {
+                type: String,
+                default() {
+                    return '';
+                }
             },
             configs: {
                 type: Object,
@@ -127,17 +139,22 @@
 
                 const textEditor = new CodeMirrorEditor(this.simplemde.codemirror);
                 const textcomplete = new Textcomplete(textEditor);
+                let emoji = {};
+                axios.get('/api/emoji').then(function (response) {
+                    emoji = response.data;
+                });
                 textcomplete.register([{
-                    // User match
-                    match: /(^|\s)@(\w.+)$/,
+                    match: /(^|\s):([a-z0-9+\-\_]*)$/,
                     search: function (term, callback) {
-                        // TODO: Finish this callback
-                        callback(function () {
-                            return ['Matt', 'Torrey']
-                        })
+                        callback(Object.keys(emoji).filter(function (name) {
+                            return name.startsWith(term);
+                        }))
+                    },
+                    template: function (name) {
+                        return emoji[name]["unicode"] + ' ' + name;
                     },
                     replace: function (value) {
-                        return '@' + value;
+                        return ' :' + value + ':';
                     }
                 }, {
                     // Ticket match
@@ -163,16 +180,6 @@
                     },
                     replace: function (value) {
                         return '!' + value;
-                    }
-                }, {
-                    match: /(^|\s):(\w.+)$/,
-                    search: function (term, callback) {
-                        callback(function () {
-                            axios.get('/api/emoji')
-                        })
-                    },
-                    replace: function (value) {
-                        return value;
                     }
                 }]);
 

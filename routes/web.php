@@ -25,7 +25,8 @@ Route::post('/settings');
 Route::get('/user/{user}');
 
 Route::group(['prefix' => '/ticket', 'middleware' => ['auth', 'verified']], function () {
-    Route::get('/create');
+    Route::get('/create', 'Tickets\TicketController@create');
+    Route::post('/create', 'Tickets\TicketController@insert');
     Route::get('/{ticket}');
     Route::get('/{ticket}/edit');
     Route::post('/{ticket}/edit');
