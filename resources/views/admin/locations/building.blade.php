@@ -28,9 +28,9 @@
                                     <td><input type="checkbox" class="custom-control-input"
                                                {{ $user->staff ? 'checked' : '' }} disabled></td>
                                     <td>
-                                        <a href="{{ url('/admin/users/' . $user->id) }}"
+                                        <a href="{{ url('/admin/users/' . $user->slug) }}"
                                            class="btn btn-sm btn-outline-primary"><i class="mdi mdi-eye"></i></a>
-                                        <a href="{{ url('/admin/users/' . $user->id . '/edit') }}"
+                                        <a href="{{ url('/admin/users/' . $user->slug . '/edit') }}"
                                            class="btn btn-sm btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
                                     </td>
                                 </tr>
