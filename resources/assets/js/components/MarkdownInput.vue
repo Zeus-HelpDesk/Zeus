@@ -7,7 +7,6 @@
 <script>
     import SimpleMDE from 'simplemde';
     import marked from 'marked';
-    import axios from 'axios';
     import {Textcomplete} from 'textcomplete';
     import CodeMirrorEditor from 'textcomplete.codemirror';
 
@@ -140,13 +139,13 @@
                 const textEditor = new CodeMirrorEditor(this.simplemde.codemirror);
                 const textcomplete = new Textcomplete(textEditor);
                 let emoji = {};
-                axios.get('/api/emoji').then(function (response) {
+                axios.get('/api/emoji').then(response => {
                     emoji = response.data;
                 });
                 textcomplete.register([{
                     match: /(^|\s):([a-z0-9+\-\_]*)$/,
                     search: function (term, callback) {
-                        callback(Object.keys(emoji).filter(function (name) {
+                        callback(Object.keys(emoji).filter(name => {
                             return name.startsWith(term);
                         }))
                     },
