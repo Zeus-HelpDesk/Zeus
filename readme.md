@@ -17,4 +17,4 @@ Zues is a open source, fast, reliable help desk software designed for contract I
 Because this project is open source there is no real-time support readily available, if this is a requirement for your use do not use this software, paid priority support via e-mail may come at a future date.
 
 #### License
-This software is licensed under the GPLv3 license. You can read the whole license [here](https://github.com/IQAndreas/markdown-licenses/blob/master/gnu-gpl-v3.0.md)
+This software is licensed under the AGPLv3 license. You can read the whole license [here](https://github.com/IQAndreas/markdown-licenses/blob/master/gnu-agpl-v3.0.md)
