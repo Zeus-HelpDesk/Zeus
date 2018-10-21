@@ -8,7 +8,7 @@
  * @copyright  2015-2018
  *
  * For the full copyright and license information,
- * please view the LICENSE.md file that was distributed
+ * please view the LICENSE.md.md file that was distributed
  * with this source code.
  */
 

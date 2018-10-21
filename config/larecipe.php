@@ -35,8 +35,8 @@ return [
         'default' => 'users',
         'published' => [
             'users',
-            'site-admins',
-            'admins'
+            'admins',
+            'site-admins'
         ]
     ],
 
@@ -163,11 +163,11 @@ return [
     */
 
     'seo' => [
-        'author' => 'Matthew Rhodes',
-        'description' => 'Zeus Documentation',
-        'keywords' => 'Zeus,help-desk,documentation',
+        'author' => '',
+        'description' => '',
+        'keywords' => '',
         'og' => [
-            'title' => 'Zeus Documentation',
+            'title' => '',
             'type' => 'article',
             'url' => '',
             'image' => '',
