@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Tickets;
+namespace App\Http\Controllers\HelpDesk\Tickets;
 
 use App\Category;
 use App\Http\Controllers\Controller;

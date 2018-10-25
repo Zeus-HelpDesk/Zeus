@@ -25,6 +25,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Comment extends Model
 {
+
+    protected $fillable = ['comment', 'ticket_id', 'user_id'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -24,12 +24,12 @@ Route::post('/settings');
 
 Route::get('/user/{user}');
 
-Route::group(['prefix' => '/ticket', 'middleware' => ['auth', 'verified']], function () {
-    Route::get('/create', 'Tickets\TicketController@create');
-    Route::post('/create', 'Tickets\TicketController@insert');
-    Route::get('/{ticket}');
-    Route::get('/{ticket}/edit');
-    Route::post('/{ticket}/edit');
+Route::group(['prefix' => '/ticket', 'middleware' => ['auth', 'verified'], 'namespace' => 'HelpDesk\Tickets'], function () {
+    Route::get('/create', 'TicketController@create');
+    Route::post('/create', 'TicketController@insert');
+    Route::get('/{ticket}', 'TicketController@index');
+    Route::get('/{ticket}/edit', 'TicketController@edit');
+    Route::post('/{ticket}/edit', 'TicketController@update');
 });
 
 /*
@@ -52,7 +52,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff', 'verified'
         Route::post('/{district}/{building}/edit', 'Locations\BuildingController@update');
     });
     // Manage Users
-    Route::group(['prefix' => '/users'], function () {
+    Route::group(['prefix' => '/users', 'middleware' => ['auth', 'staff', 'verified']], function () {
         Route::get('/');
         Route::get('/create');
         Route::post('/create');
@@ -60,6 +60,18 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff', 'verified'
         Route::get('/{user}/edit');
         Route::post('/{user}/edit');
     });
-    Route::get('/help-desk/status');
-    Route::get('/help-desk/category');
+
+    Route::group(['prefix' => '/help-desk', 'middleware' => ['auth', 'staff', 'verified'], 'namespace' => 'HelpDesk\Meta'], function () {
+        Route::group(['prefix' => '/status'], function () {
+            Route::get('/', 'StatusController@index');
+        });
+
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/', 'CategoryController@index');
+        });
+
+        Route::group(['prefix' => '/priority'], function () {
+            Route::get('/', 'PriorityController@index');
+        });
+    });
 });

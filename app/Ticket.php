@@ -45,6 +45,8 @@ class Ticket extends Model implements Auditable
 {
     use AuditableTrait;
 
+    protected $fillable = ['description', 'priority_id', 'category_id', 'user_id', 'room', 'district_id', 'building_id'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
