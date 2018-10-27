@@ -25,8 +25,8 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->room }}</td>
-                                    <td><input type="checkbox" class="custom-control-input"
-                                               {{ $user->staff ? 'checked' : '' }} disabled></td>
+                                    <td><input class="form-check-input custom-control-input" type="checkbox"
+                                                {{ $user->staff ? 'checked' : '' }}></td>
                                     <td>
                                         <a href="{{ url('/admin/users/' . $user->slug) }}"
                                            class="btn btn-sm btn-outline-primary"><i class="mdi mdi-eye"></i></a>

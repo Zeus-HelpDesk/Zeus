@@ -44,7 +44,7 @@ class CreateBuilding extends Command
         $building['phone_number'] = $this->ask('What is the buildings phone number? (Optional)', null);
         $building['phone_extension'] = $this->ask('What is the buildings phone extension? (Optional)', null);
         $building['district'] = $this->choice('Which district is this building part of?', District::pluck('name')->toArray(), 0);
-        $building['code'] = $this->ask('What should the district code be? (Optional)', null);
+        $building['code'] = $this->ask('What should the building code be? (Optional)', null);
 
         $validate = \Validator::make($building, [
             'name' => 'required|string',

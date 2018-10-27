@@ -64,14 +64,26 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff', 'verified'
     Route::group(['prefix' => '/help-desk', 'middleware' => ['auth', 'staff', 'verified'], 'namespace' => 'HelpDesk\Meta'], function () {
         Route::group(['prefix' => '/status'], function () {
             Route::get('/', 'StatusController@index');
+            Route::get('/create', 'StatusController@create');
+            Route::post('/create', 'StatusController@insert');
+            Route::get('/edit/{status}', 'StatusController@edit');
+            Route::post('/edit/{status}', 'StatusController@update');
         });
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
+            Route::get('/create', 'CategoryController@create');
+            Route::post('/create', 'CategoryController@insert');
+            Route::get('/edit/{category}', 'CategoryController@edit');
+            Route::post('/edit/{category}', 'CategoryController@update');
         });
 
         Route::group(['prefix' => '/priority'], function () {
             Route::get('/', 'PriorityController@index');
+            Route::get('/create', 'PriorityController@create');
+            Route::post('/create', 'PriorityController@insert');
+            Route::get('/edit/{priority}', 'PriorityController@edit');
+            Route::post('/edit/{priority}', 'PriorityController@update');
         });
     });
 });
