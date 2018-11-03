@@ -10,26 +10,38 @@ class StatusController extends Controller
 {
     public function index()
     {
-
+        return view('admin.help-desk.status.index', ['statuses' => Status::all()]);
     }
 
     public function create()
     {
-        return view();
+        return view('admin.help-desk.status.create');
     }
 
     public function insert(Request $request)
     {
-
+        $this->validate($request, [
+            'name' => 'required|string',
+            'description' => 'nullable|string',
+            'closes_ticket' => 'nullable|boolean'
+        ]);
+        Status::create($request->only(['name', 'description', 'closes_ticket']));
+        return redirect('/admin/help-desk/status');
     }
 
-    public function edit()
+    public function edit(Status $status)
     {
-        return view();
+        return view('admin.help-desk.status.edit', ['status' => $status]);
     }
 
     public function update(Request $request, Status $status)
     {
-
+        $this->validate($request, [
+            'name' => 'required|string',
+            'description' => 'nullable|string',
+            'closes_ticket' => 'nullable|boolean'
+        ]);
+        tap($status)->update($request->only(['name', 'description', 'closes_ticket']));
+        return redirect('/admin/help-desk/category');
     }
 }

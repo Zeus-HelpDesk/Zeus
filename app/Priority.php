@@ -17,9 +17,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $description
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority whereDescription($value)
  */
 class Priority extends Model
 {
+    protected $fillable = ['name', 'description'];
+
     public function tickets()
     {
         return $this->hasMany('App\Ticket');

@@ -10,26 +10,36 @@ class PriorityController extends Controller
 {
     public function index()
     {
-        return view('', ['priorities' => Priority::all()]);
+        return view('admin.help-desk.priority.index', ['priorities' => Priority::all()]);
     }
 
     public function create()
     {
-        return view();
+        return view('admin.help-desk.priority.create');
     }
 
     public function insert(Request $request)
     {
-
+        $this->validate($request, [
+            'name' => 'required|string',
+            'description' => 'nullable|string'
+        ]);
+        Priority::create($request->only(['name', 'description']));
+        return redirect('/admin/help-desk/priority');
     }
 
-    public function edit()
+    public function edit(Priority $priority)
     {
-        return view();
+        return view('admin.help-desk.priority.edit', ['priority' => $priority]);
     }
 
     public function update(Request $request, Priority $priority)
     {
-
+        $this->validate($request, [
+            'name' => 'required|string',
+            'description' => 'nullable|string'
+        ]);
+        tap($priority)->update($request->only(['name', 'description']));
+        return redirect('/admin/help-desk/priority');
     }
 }

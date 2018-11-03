@@ -70,7 +70,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'staff', 'verified'
             Route::post('/edit/{status}', 'StatusController@update');
         });
 
-        Route::group(['prefix' => 'category'], function () {
+        Route::group(['prefix' => '/category'], function () {
             Route::get('/', 'CategoryController@index');
             Route::get('/create', 'CategoryController@create');
             Route::post('/create', 'CategoryController@insert');
