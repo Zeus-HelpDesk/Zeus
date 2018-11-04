@@ -150,7 +150,7 @@
                         }))
                     },
                     template: function (name) {
-                        return emoji[name]["unicode"] + ' ' + name;
+                        return '<img class="emoji" src=' + emoji[name]["img"] + '>  ' + name;
                     },
                     replace: function (value) {
                         return ' :' + value + ':';
