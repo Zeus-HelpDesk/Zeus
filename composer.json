@@ -7,7 +7,7 @@
     "it",
     "information-technology"
   ],
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "type": "project",
   "require": {
     "php": "^7.2.0",
