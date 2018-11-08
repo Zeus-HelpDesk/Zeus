@@ -23,7 +23,7 @@ class StatusController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'description' => 'nullable|string',
-            'closes_ticket' => 'nullable|boolean'
+            'closes_ticket' => 'nullable'
         ]);
         Status::create($request->only(['name', 'description', 'closes_ticket']));
         return redirect('/admin/help-desk/status');
@@ -39,7 +39,7 @@ class StatusController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'description' => 'nullable|string',
-            'closes_ticket' => 'nullable|boolean'
+            'closes_ticket' => 'nullable'
         ]);
         tap($status)->update($request->only(['name', 'description', 'closes_ticket']));
         return redirect('/admin/help-desk/category');

@@ -1,0 +1,41 @@
+type Category {
+    id: ID!
+    name: String!
+    description: String!
+    icon: String!
+}
+
+type Priority {
+    id: ID!
+    name: String!
+    description: String!
+}
+
+type Status {
+    id: ID!
+    name: String!
+    description: String!
+    closes_ticket: Boolean!
+}
+
+type Ticket {
+    id: ID!
+    hash: ID!
+    description: String!
+    district: District! @belongsTo
+    building: Building! @belongsTo
+    room: String!
+    user: User! @belongsTo
+    priority: Priority! @belongsTo
+    category: Category! @belongsTo
+    status: Status! @belongsTo
+    comments: [Comment!]! @hasMany
+    assignees: [User!]! @belongsToMany
+}
+
+type Comment {
+    id: ID!
+    comment: String!
+    ticket: Ticket! @belongsTo
+    user: User! @belongsTo
+}

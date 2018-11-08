@@ -143,7 +143,7 @@
                     emoji = response.data;
                 });
                 textcomplete.register([{
-                    match: /(^|\s):([a-z0-9+\-\_]*)$/,
+                    match: /(^|\s):([a-z0-9+\-_]*)$/,
                     search: function (term, callback) {
                         callback(Object.keys(emoji).filter(name => {
                             return name.startsWith(term);
@@ -185,11 +185,6 @@
                 // set previewClass
                 const className = this.previewClass || '';
                 this.addPreviewClass(className);
-
-                // Bind events
-                /*this.simplemde.codemirror.on("change", function (instance, changeObj) {
-                    textcomplete.trigger(this.simplemde.value());
-                });*/
                 this.bindingEvents();
             },
             bindingEvents() {

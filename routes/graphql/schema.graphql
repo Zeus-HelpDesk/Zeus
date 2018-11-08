@@ -1,0 +1,82 @@
+type District {
+    id: ID!
+    name: String!
+    users: [User!]! @hasMany
+    tickets: [Ticket!]! @hasMany
+    created_at: String!
+    updated_at: String
+}
+
+type Building {
+    id: ID!
+    name: String!
+    users: [User!]! @hasMany
+    tickets: [Ticket!]! @hasMany
+    created_at: String!
+    updated_at: String
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    slug: String!
+    district: District! @belongsTo
+    building: Building! @belongsTo
+    tickets: [Ticket!]! @hasMany
+    assigned: [Ticket!]! @belongsToMany
+    created_at: String!
+    updated_at: String
+}
+
+type Category {
+    id: ID!
+    name: String!
+    description: String
+    icon: String
+    tickets: [Ticket!]! @hasMany
+    created_at: String!
+    updated_at: String
+}
+
+type Priority {
+    id: ID!
+    name: String!
+    description: String
+    tickets: [Ticket!]! @hasMany
+    created_at: String!
+    updated_at: String
+}
+
+type Status {
+    id: ID!
+    name: String!
+    description: String
+    closes_ticket: Boolean!
+    tickets: [Ticket!]! @hasMany
+    created_at: String!
+    updated_at: String
+}
+
+type Ticket {
+    id: ID!
+    hash: ID!
+    description: String!
+    category: Category! @belongsTo
+    priority: Priority! @belongsTo
+    status: Status! @belongsTo
+    district: District! @belongsTo
+    building: Building! @belongsTo
+    room: String!
+    user: User! @belongsTo
+    assignees: [User!]! @belongsToMany
+    created_at: String!
+    updated_at: String
+}
+
+type Query {
+    users(id: ID, email: String, slug: String): [User] @paginate(model: "App\\User")
+    districts(id: ID): [District] @paginate(model: "App\\District")
+    buildings(id: ID): [Building] @paginate(model: "App\\Building")
+    tickets(id: ID, hash: ID): [Ticket] @paginate(model: "App\\Ticket")
+}
