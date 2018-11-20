@@ -45,7 +45,7 @@ class TicketController extends Controller
 
     public function edit(Request $request, Ticket $ticket)
     {
-        return view('ticket.edit');
+        return view('ticket.edit', ['ticket' => $ticket]);
     }
 
     public function update(Request $request, Ticket $ticket)

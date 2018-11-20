@@ -87,6 +87,11 @@ class Ticket extends Model implements Auditable
         return $this->belongsToMany('App\User')->withTimestamps();
     }
 
+    public function getHtmlDescriptionAttribute()
+    {
+        return \Markdown::convertToHtml("{$this->description}");
+    }
+
     /**
      * The boot method
      * @return void

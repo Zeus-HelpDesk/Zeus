@@ -1,5 +1,5 @@
 ## About Zeus
-![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg)
+![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-green.svg)
 
 Zues is a open source, fast, reliable help desk software designed for contract IT departments that have multiple clients each with multiple buildings. This software can scale across hundreds of servers without issue.
 

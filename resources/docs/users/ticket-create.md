@@ -10,6 +10,7 @@
 ## Basic Overview
 > {danger} This software will only allow you to submit tickets for yourself, do not put in tickets for other people! If someone is having issues submitting a ticket please have them email your tech department for further support.
 
+![Ticket Creation Page](/images/docs/users/ticket-create.png)
 
 <a name="advanced-formatting"></a>
 ## Advanced Formatting
