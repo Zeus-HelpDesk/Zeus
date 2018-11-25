@@ -49,7 +49,7 @@ class TicketMentionParser extends AbstractInlineParser
             $cursor->restoreState($previousState);
             return false;
         }
-        $ticketUrl = config('app.url') . '/ticket/' . $ticket->hash;
+        $ticketUrl = \URL::to('/ticket/' . $ticket->hash);
         $inlineContext->getContainer()->appendChild(new Link($ticketUrl, '#' . $ticket->hash));
         return true;
     }

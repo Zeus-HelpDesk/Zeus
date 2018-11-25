@@ -24,5 +24,8 @@
     "textcomplete": "^0.17.1",
     "textcomplete.codemirror": "^0.2.1",
     "vue": "^2.5.7"
+  },
+  "dependencies": {
+    "vue-timeago": "^5.0.0"
   }
 }

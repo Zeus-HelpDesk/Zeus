@@ -18,6 +18,7 @@ class CreateStatusTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->boolean('closes_ticket')->default(false);
+            $table->boolean('default')->default(false);
             $table->timestamps();
         });
     }

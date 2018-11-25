@@ -27,6 +27,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\District wherePhoneNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\District whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\District newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\District newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\District query()
  */
 class District extends Model
 {

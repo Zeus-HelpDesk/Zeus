@@ -29,6 +29,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Building wherePhoneNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Building whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Building newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Building newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Building query()
  */
 class Building extends Model
 {

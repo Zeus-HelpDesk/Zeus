@@ -21,6 +21,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Status whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Status whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Status whereUpdatedAt($value)
+ * @property int $default
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Status newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Status newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Status query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Status whereDefault($value)
  */
 class Status extends Model
 {

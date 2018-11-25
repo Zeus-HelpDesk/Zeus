@@ -40,6 +40,12 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereUserId($value)
  * @mixin \Eloquent
+ * @property int $status_id
+ * @property-read mixed $html_description
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereStatusId($value)
  */
 class Ticket extends Model implements Auditable
 {
@@ -87,6 +93,33 @@ class Ticket extends Model implements Auditable
         return $this->belongsToMany('App\User')->withTimestamps();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function priority()
+    {
+        return $this->belongsTo('App\Priority');
+    }
+
+    /**
+     * @return string
+     */
     public function getHtmlDescriptionAttribute()
     {
         return \Markdown::convertToHtml("{$this->description}");
@@ -106,6 +139,8 @@ class Ticket extends Model implements Auditable
                 // Based on my calculations this code should provide 1,406,408,600,000 possible combinations, I might be wrong though
                 $hash = \Hashids::encode(gmp_random_bits(31));
             }
+            $status = Status::whereDefault(true)->first(['id']);
+            $model->status_id = $status->id;
             $model->hash = $hash;
         });
     }

@@ -19,6 +19,9 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property string|null $description
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Priority query()
  */
 class Priority extends Model
 {

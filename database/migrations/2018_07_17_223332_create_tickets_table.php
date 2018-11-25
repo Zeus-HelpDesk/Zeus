@@ -23,6 +23,7 @@ class CreateTicketsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('priority_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
+            $table->integer('status_id')->unsigned()->index();
             $table->timestampTz('completed_at');
             $table->timestampsTz();
 
