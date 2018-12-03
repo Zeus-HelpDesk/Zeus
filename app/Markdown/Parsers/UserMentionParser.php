@@ -49,7 +49,7 @@ class UserMentionParser extends AbstractInlineParser
             $cursor->restoreState($previousState);
             return false;
         }
-        $ticketUrl = config('app.url') . '/user/' . $user->slug;
+        $ticketUrl = \URL::to('/user/' . $user->slug);
         $inlineContext->getContainer()->appendChild(new Link($ticketUrl, '@' . $user->slug));
         return true;
     }

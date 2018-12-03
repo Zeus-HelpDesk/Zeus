@@ -43,16 +43,14 @@
 
                             <dt class="col-sm-4">Created</dt>
                             <dd class="col-sm-8">
-                                <timeago datetime="{{ $ticket->created_at }}"></timeago>
+                                <timeago datetime="{{ $ticket->created_at }}" :auto-update="60"></timeago>
                             </dd>
 
                             <dt class="col-sm-4">Updated</dt>
                             <dd class="col-sm-8">
-                                <timeago datetime="{{ $ticket->updated_at }}"></timeago>
+                                <timeago datetime="{{ $ticket->updated_at }}" :auto-update="60"></timeago>
                             </dd>
                         </dl>
-
-
                     </div>
                 </div>
             </div>
