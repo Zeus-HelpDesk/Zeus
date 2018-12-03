@@ -6,10 +6,11 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue';
 
 
-const VueTimeago = require('vue-timeago');
+import VueTimeago from 'vue-timeago';
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -20,11 +21,11 @@ Vue.use(VueTimeago, {
     autoUpdate: 30
 });
 
-Vue.component('markdown-input', require('./components/MarkdownInput'));
+Vue.component('markdown-input', require('./components/MarkdownInput').default);
 
-Vue.component('passport-clients', require('./components/passport/Clients.vue'));
-Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue'));
-Vue.component('passport-personal-tokens', require('./components/passport/PersonalAccessTokens.vue'));
+Vue.component('passport-clients', require('./components/passport/Clients.vue').default);
+Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);
+Vue.component('passport-personal-tokens', require('./components/passport/PersonalAccessTokens.vue').default);
 
 const app = new Vue({
     el: '#app'
