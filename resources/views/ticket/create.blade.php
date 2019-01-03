@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center">
-                                <button type="submit" class="btn btn-primary">Create Ticket</button>
+                                <button type="submit" class="btn btn-raised btn-primary">Create Ticket</button>
                             </div>
                         </form>
                     </div>

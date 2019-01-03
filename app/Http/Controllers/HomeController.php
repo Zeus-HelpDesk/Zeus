@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ticket;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('home');
+        return view('home', ['open' => Ticket::whereUserId($request->user()->id)->whereCompletedAt(null)->get()]);
     }
 }
