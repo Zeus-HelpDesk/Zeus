@@ -96,7 +96,7 @@
                         {
                             name: "ordered-list",
                             action: SimpleMDE.toggleOrderedList,
-                            className: "mdi mdi-format-list-numbers"
+                            className: "mdi mdi-format-list-numbered"
                         }, "|",
                         {
                             name: "link",
