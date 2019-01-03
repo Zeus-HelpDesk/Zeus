@@ -7,6 +7,7 @@
     - [Filesystems](/docs/{{version}}/connections/filesystems)
     - [Mail](/docs/{{version}}/connections/mail)
     - [Proxy](/docs/{{version}}/connections/proxy)
+    - [Websockets (Realtime)](/docs/{{version}}/connections/websockets)
 - ## Acknowledgements
     - [Contributors](/docs/{{version}}/contributors)
     - [Source Code](https://git.kilgoretech.com/matthew/Zeus)

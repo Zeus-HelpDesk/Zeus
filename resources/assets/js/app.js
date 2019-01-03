@@ -22,6 +22,7 @@ Vue.use(VueTimeago, {
 });
 
 Vue.component('markdown-input', require('./components/MarkdownInput').default);
+Vue.component('notifications', require('./components/Notifications').default);
 
 Vue.component('passport-clients', require('./components/passport/Clients.vue').default);
 Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);

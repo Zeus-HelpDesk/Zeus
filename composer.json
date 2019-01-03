@@ -15,6 +15,7 @@
     "ext-gmp": "*",
     "ext-json": "*",
     "barryvdh/laravel-cors": "^0.11.0",
+    "beyondcode/laravel-websockets": "^1.0",
     "binarytorch/larecipe": "^1.0",
     "fideloper/proxy": "^4.0",
     "graham-campbell/guzzle-factory": "^3.0",
