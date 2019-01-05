@@ -76,42 +76,42 @@
                         {
                             name: "italic",
                             action: SimpleMDE.toggleItalic,
-                            className: "mdi mdi-format-italic"
+                            className: "mdi mdi-format-italic",
                         },
                         {
                             name: "strikethrough",
                             action: SimpleMDE.toggleStrikethrough,
-                            className: "mdi mdi-format-strikethrough-variant"
+                            className: "mdi mdi-format-strikethrough-variant",
                         }, "|",
                         {
                             name: "quote",
                             action: SimpleMDE.toggleBlockquote,
-                            className: "mdi mdi-format-quote-close"
+                            className: "mdi mdi-format-quote-close",
                         },
                         {
                             name: "unordered-list",
                             action: SimpleMDE.toggleUnorderedList,
-                            className: "mdi mdi-format-list-bulleted"
+                            className: "mdi mdi-format-list-bulleted",
                         },
                         {
                             name: "ordered-list",
                             action: SimpleMDE.toggleOrderedList,
-                            className: "mdi mdi-format-list-numbered"
+                            className: "mdi mdi-format-list-numbered",
                         }, "|",
                         {
                             name: "link",
                             action: SimpleMDE.drawLink,
-                            className: "mdi mdi-link"
+                            className: "mdi mdi-link",
                         },
                         {
                             name: "horizontal-rule",
                             action: SimpleMDE.drawHorizontalRule,
-                            className: "mdi mdi-minus"
+                            className: "mdi mdi-minus",
                         }, "|", "side-by-side",
                         {
                             name: "preview",
                             action: SimpleMDE.togglePreview,
-                            className: "mdi mdi-eye no-disable"
+                            className: "mdi mdi-eye no-disable",
                         },
                         {
                             name: "fullscreen",
