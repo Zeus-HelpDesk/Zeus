@@ -29,9 +29,11 @@
                                                 {{ $user->staff ? 'checked' : '' }}></td>
                                     <td>
                                         <a href="{{ url('/admin/users/' . $user->slug) }}"
-                                           class="btn btn-sm btn-outline-primary"><i class="mdi mdi-eye"></i></a>
+                                           class="btn btn-sm btn-outline-primary"><i class="iconify"
+                                                                                     data-icon="mdi:eye"></i></a>
                                         <a href="{{ url('/admin/users/' . $user->slug . '/edit') }}"
-                                           class="btn btn-sm btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
+                                           class="btn btn-sm btn-outline-warning"><i class="iconify"
+                                                                                     data-icon="mdi:pencil"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

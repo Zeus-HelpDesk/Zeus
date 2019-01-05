@@ -29,9 +29,10 @@
                                     <td>
                                         <a href="{{ url('/admin/locations/' . $district->id . '/' . $building->id) }}"
                                            class="btn btn-sm btn-outline-primary"><i
-                                                    class="mdi mdi-eye"></i></a>
+                                                    class="iconify" data-icon="mdi:eye"></i></a>
                                         <a href="{{ url('/admin/locations/' . $district->id . '/' . $building->id . '/edit') }}"
-                                           class="btn btn-sm btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
+                                           class="btn btn-sm btn-outline-warning"><i class="iconify"
+                                                                                     data-icon="mdi:pencil"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

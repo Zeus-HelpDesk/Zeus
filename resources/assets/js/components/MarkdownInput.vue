@@ -67,57 +67,7 @@
                     element: this.$el.firstElementChild,
                     initialValue: this.value,
                     renderingConfig: {},
-                    toolbar: [
-                        {
-                            name: "bold",
-                            action: SimpleMDE.toggleBold,
-                            className: "mdi mdi-format-bold"
-                        },
-                        {
-                            name: "italic",
-                            action: SimpleMDE.toggleItalic,
-                            className: "mdi mdi-format-italic",
-                        },
-                        {
-                            name: "strikethrough",
-                            action: SimpleMDE.toggleStrikethrough,
-                            className: "mdi mdi-format-strikethrough-variant",
-                        }, "|",
-                        {
-                            name: "quote",
-                            action: SimpleMDE.toggleBlockquote,
-                            className: "mdi mdi-format-quote-close",
-                        },
-                        {
-                            name: "unordered-list",
-                            action: SimpleMDE.toggleUnorderedList,
-                            className: "mdi mdi-format-list-bulleted",
-                        },
-                        {
-                            name: "ordered-list",
-                            action: SimpleMDE.toggleOrderedList,
-                            className: "mdi mdi-format-list-numbered",
-                        }, "|",
-                        {
-                            name: "link",
-                            action: SimpleMDE.drawLink,
-                            className: "mdi mdi-link",
-                        },
-                        {
-                            name: "horizontal-rule",
-                            action: SimpleMDE.drawHorizontalRule,
-                            className: "mdi mdi-minus",
-                        }, "|", "side-by-side",
-                        {
-                            name: "preview",
-                            action: SimpleMDE.togglePreview,
-                            className: "mdi mdi-eye no-disable",
-                        },
-                        {
-                            name: "fullscreen",
-                            action: SimpleMDE.toggleFullScreen,
-                            className: "mdi mdi-fullscreen no-disable no-mobile"
-                        }],
+                    toolbar: ["bold", "italic", "strikethrough", "|", "quote", "unordered-list", "ordered-list", "|", "link", "horizontal-rule", "|", "side-by-side", "preview", "fullscreen",],
                 }, this.configs);
 
                 // Initial Input

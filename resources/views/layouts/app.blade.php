@@ -28,8 +28,6 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700"
           rel="stylesheet" type="text/css">
-    <link href="https://cdn.materialdesignicons.com/3.3.92/css/materialdesignicons.min.css" rel="stylesheet"
-          type="text/css">
 
     <!-- Styles -->
     <link rel="stylesheet"

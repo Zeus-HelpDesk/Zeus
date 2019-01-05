@@ -28,7 +28,8 @@
                                         <td>{{ $status->closes_ticket }}</td>
                                         <td>
                                             <a href="{{ url('/admin/help-desk/status/edit/' . $status->id) }}"
-                                               class="btn btn-sm btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
+                                               class="btn btn-sm btn-outline-warning"><i class="iconify"
+                                                                                         data-icon="mdi:pencil"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
