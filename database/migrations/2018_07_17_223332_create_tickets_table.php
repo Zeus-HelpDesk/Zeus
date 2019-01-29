@@ -24,7 +24,7 @@ class CreateTicketsTable extends Migration
             $table->integer('priority_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
             $table->integer('status_id')->unsigned()->index();
-            $table->timestampTz('completed_at');
+            $table->timestampTz('completed_at')->nullable();
             $table->timestampsTz();
 
             // When a district, building or user is deleted we delete the tickets belonging to that entity

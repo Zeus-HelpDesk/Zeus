@@ -25,6 +25,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('home', ['open' => Ticket::whereUserId($request->user()->id)->whereCompletedAt(null)->get()]);
+        $tickets = \Cache::tags($request->user()->id . ':home')->remember($request->user()->id . ':home:open', 10, function () {
+            return Ticket::whereUserId(\Auth::user()->id)
+                ->whereCompletedAt(null)
+                ->orderBy('created_at', 'DESC')
+                ->get(['hash', 'description', 'updated_at']);
+        });
+        return view('home', ['open' => $tickets]);
     }
 }
