@@ -28,7 +28,16 @@ class SettingsController extends Controller
 
     public function updatePassword(Request $request)
     {
-        return redirect()->back();
+        $this->validate($request, [
+            'old_password' => 'required',
+            'new_password' => 'required|confirm|min:8'
+        ]);
+        if (\Hash::check($request->input('old_password'), $request->user()->password)) {
+            tap($request->user())->update(['password' => \Hash::make($request->input('new_password'))]);
+            return redirect()->back();
+        } else {
+            return redirect()->back()->withErrors(['old_password' => 'Old password incorrect']);
+        }
     }
 
     public function updateLocation(Request $request)

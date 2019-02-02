@@ -33,6 +33,7 @@
     "owen-it/laravel-auditing": "^8.0",
     "predis/predis": "^1.1",
     "pusher/pusher-php-server": "~3.0",
+    "sentry/sentry-laravel": "1.0.0-beta2",
     "spatie/laravel-backup": "^5.10",
     "vinkla/hashids": "^5.0",
     "webuni/commonmark-table-extension": "^0.8.0"
