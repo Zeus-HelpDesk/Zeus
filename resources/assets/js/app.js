@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 
+import * as Sentry from '@sentry/browser';
 import Vue from 'vue';
 
 
@@ -30,4 +31,9 @@ Vue.component('passport-personal-tokens', require('./components/passport/Persona
 
 const app = new Vue({
     el: '#app'
+});
+
+Sentry.init({
+    dsn: process.env.MIX_SENTRY_PUBLIC_DSN,
+    integrations: [new Sentry.Integrations.Vue({Vue})]
 });
