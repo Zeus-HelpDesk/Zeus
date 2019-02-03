@@ -10,7 +10,10 @@ class PriorityController extends Controller
 {
     public function index()
     {
-        return view('admin.help-desk.priority.index', ['priorities' => Priority::all()]);
+        $prorities = \Cache::tags('priority')->remember('priority.all', 60, function () {
+            return Priority::all();
+        });
+        return view('admin.help-desk.priority.index', ['priorities' => $prorities]);
     }
 
     public function create()
@@ -25,6 +28,7 @@ class PriorityController extends Controller
             'description' => 'nullable|string'
         ]);
         Priority::create($request->only(['name', 'description']));
+        \Cache::tags('priority')->clear();
         return redirect('/admin/help-desk/priority');
     }
 
@@ -40,6 +44,7 @@ class PriorityController extends Controller
             'description' => 'nullable|string'
         ]);
         tap($priority)->update($request->only(['name', 'description']));
+        \Cache::tags('priority')->clear();
         return redirect('/admin/help-desk/priority');
     }
 }
