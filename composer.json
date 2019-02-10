@@ -40,6 +40,7 @@
   },
   "require-dev": {
     "barryvdh/laravel-ide-helper": "^2.4",
+    "barryvdh/laravel-translation-manager": "^0.5.2",
     "codedungeon/phpunit-result-printer": "^0.19.12",
     "doctrine/dbal": "^2.8",
     "filp/whoops": "^2.0",

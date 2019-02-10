@@ -14,7 +14,6 @@
                                 <th>{{ __('ID') }}</th>
                                 <th>{{ __('Description') }}</th>
                                 <th>{{ __('Last Update') }}</th>
-                                <th>{{ __('Last Comment') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -24,11 +23,6 @@
                                     <td>{!! Markdown::convertToHtml(str_limit($ticket->description)) !!}</td>
                                     <td>
                                         <timeago datetime="{{ $ticket->updated_at }}" :auto-update="60"></timeago>
-                                    </td>
-                                    <td>
-                                        <timeago
-                                                datetime="{{ $ticket->comments->first()->updated_at ?? 'No Comments' }}"
-                                                :auto-update="60"></timeago>
                                     </td>
                                 </tr>
                             @endforeach

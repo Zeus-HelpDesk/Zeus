@@ -30,6 +30,9 @@ Route::group(['prefix' => '/ticket', 'middleware' => ['auth', 'verified'], 'name
     Route::get('/{ticket}', 'TicketController@index');
     Route::get('/{ticket}/edit', 'TicketController@edit');
     Route::post('/{ticket}/edit', 'TicketController@update');
+    Route::group(['prefix' => '/{ticket}/comment'], function () {
+        Route::post('/create', 'CommentController@insert');
+    });
 });
 
 /*

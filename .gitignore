@@ -1,6 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
+/config/translation-manager.php
+/database/migrations/2014_04_02_193005_create_translations_table.php
 /public/vendor/telescope
 /config/telescope.php
 /app/Providers/TelescopeServiceProvider.php

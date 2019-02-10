@@ -10,6 +10,41 @@
                         {!! $ticket->html_description !!}
                     </div>
                 </div>
+                @foreach($ticket->comments as $comment)
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            {!! $comment->comment !!}
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-muted">
+                                <timeago datetime="{{ $comment->created_at }}" :auto-update="60"></timeago>
+                                from {{ $comment->user->name }}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <form method="POST" action="{{ url("/ticket/$ticket->hash/comment/create") }}">
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <markdown-input class="{{ $errors->has('comment') ? ' is-invalid' : '' }}"
+                                                    box-id="comment" box-name="comment"
+                                                    value="{{ old('comment') }}"></markdown-input>
+                                    @if ($errors->has('comment'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('comment') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-center">
+                                <button type="submit" class="btn btn-raised btn-primary">Post Comment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4 mt-4 mt-md-0">
                 <div class="card">
