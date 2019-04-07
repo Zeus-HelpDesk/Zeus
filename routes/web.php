@@ -16,11 +16,14 @@ Route::get('/', function () {
 })->name('welcome');
 
 Auth::routes(['verify' => true]);
+Broadcast::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/settings');
-Route::post('/settings');
+Route::get('/settings', 'SettingsController@index');
+Route::post('/settings/profile', 'SettingsController@updateProfile');
+Route::post('/settings/password', 'SettingsController@updatePassword');
+Route::post('/settings/location', 'SettingsController@updateLocation');
 
 Route::get('/user/{user}');
 
@@ -32,6 +35,9 @@ Route::group(['prefix' => '/ticket', 'middleware' => ['auth', 'verified'], 'name
     Route::post('/{ticket}/edit', 'TicketController@update');
     Route::group(['prefix' => '/{ticket}/comment'], function () {
         Route::post('/create', 'CommentController@insert');
+        Route::get('/{comment}/edit', 'CommentController@edit');
+        Route::post('/{comment}/edit', 'CommentController@update');
+        Route::delete('/{comment}/delete', 'CommentController@delete');
     });
 });
 

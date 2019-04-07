@@ -2,13 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use Cache;
 use GrahamCampbell\GuzzleFactory\GuzzleFactory;
+use Illuminate\Http\Request;
 
 class EmojiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json($this->getEmoji());
+        if ($request->has('search')) {
+            $emoji = $this->emoji_find($request->query('search'), (array)$this->getEmoji());
+        } else {
+            $emoji = $this->getEmoji();
+        }
+        return response()->json($emoji);
+    }
+
+    /**
+     * Allows searching through the emoji array
+     *
+     * @param $needle
+     * @param array $haystack
+     * @param null $column
+     * @return array
+     */
+    private function emoji_find($needle, array $haystack, $column = null)
+    {
+        if ($needle === null) {
+            return [];
+        }
+        $search = [];
+        foreach ($haystack as $key => $value) {
+            if (strpos(strtolower($key), strtolower($needle)) !== false) {
+                $search[$key] = $haystack[$key];
+            }
+        }
+        return $search;
     }
 
     /**
@@ -18,7 +47,7 @@ class EmojiController extends Controller
      */
     public function getEmoji()
     {
-        return \Cache::remember('emoji_short_data', 240, function () {
+        return Cache::remember('emoji_short_data', 240, function () {
             $array = [];
             $headers = ['Accept' => 'application/json'];
             $result = GuzzleFactory::make()->get('https://cdn.rawgit.com/iamcal/emoji-data/master/emoji.json', ['headers' => $headers]);

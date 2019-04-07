@@ -20,7 +20,7 @@
     <!-- Scripts -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js" defer></script>
     <script src="{{ asset('js/vendor/prism/prism.js') }}" defer></script>
-    <script src="//code.iconify.design/1/1.0.0-rc1/iconify.min.js"></script>
+    <script src="//code.iconify.design/1/1.0.0-rc1/iconify.min.js" defer></script>
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -106,11 +106,11 @@
                             </div>
                         </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/docs') }}"><span class="iconify"
-                                                                                    data-icon="mdi:help-circle-outline"
-                                                                                    data-inline="false"></span></a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/docs') }}"><span class="iconify"
+                                                                                data-icon="mdi:help-circle-outline"
+                                                                                data-inline="false"></span></a>
+                        </li>
                     @endguest
                 </ul>
             </div>
@@ -121,5 +121,7 @@
         @yield('content')
     </main>
 </div>
+
+@yield('script')
 </body>
 </html>

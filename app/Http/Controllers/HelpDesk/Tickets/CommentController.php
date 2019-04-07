@@ -5,6 +5,7 @@ namespace App\Http\Controllers\HelpDesk\Tickets;
 use App\Comment;
 use App\Http\Controllers\Controller;
 use App\Ticket;
+use Auth;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -15,8 +16,8 @@ class CommentController extends Controller
             'comment' => 'required|string'
         ]);
         $comment = Comment::create([
-            'comment' => \Markdown::convertToHtml($request->input('comment')),
-            'user_id' => \Auth::user()->id,
+            'comment' => $request->input('comment'),
+            'user_id' => Auth::user()->id,
             'ticket_id' => $ticket->id
         ]);
         if ($request->ajax()) {

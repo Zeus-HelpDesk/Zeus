@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Building;
+use App\District;
+use Hash;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -32,8 +35,8 @@ class SettingsController extends Controller
             'old_password' => 'required',
             'new_password' => 'required|confirm|min:8'
         ]);
-        if (\Hash::check($request->input('old_password'), $request->user()->password)) {
-            tap($request->user())->update(['password' => \Hash::make($request->input('new_password'))]);
+        if (Hash::check($request->input('old_password'), $request->user()->password)) {
+            tap($request->user())->update(['password' => Hash::make($request->input('new_password'))]);
             return redirect()->back();
         } else {
             return redirect()->back()->withErrors(['old_password' => 'Old password incorrect']);
@@ -42,6 +45,10 @@ class SettingsController extends Controller
 
     public function updateLocation(Request $request)
     {
+        $split = explode('-', $request->input('invite_code'));
+        $district = District::whereCode($split[0])->firstOrFail(['id']);
+        $building = Building::whereDistrictId($district->id)->whereCode($split[1])->firstOrFail(['id']);
+        tap($request->user())->update(['district_id' => $district->id, 'building_id' => $building->id]);
         return redirect()->back();
     }
 }

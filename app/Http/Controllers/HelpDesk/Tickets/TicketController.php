@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Priority;
 use App\Ticket;
 use App\User;
+use Auth;
+use Cache;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -18,10 +20,10 @@ class TicketController extends Controller
 
     public function create(Request $request)
     {
-        $categories = \Cache::tags('category')->remember('category.all', 60, function () {
+        $categories = Cache::tags('category')->remember('category.all', 60, function () {
             return Category::all();
         });
-        $priorities = \Cache::tags('priority')->remember('priority.all', 60, function () {
+        $priorities = Cache::tags('priority')->remember('priority.all', 60, function () {
             return Priority::all();
         });
         return view('ticket.create', ['categories' => $categories, 'priorities' => $priorities]);
@@ -36,7 +38,7 @@ class TicketController extends Controller
             'user_id' => 'nullable|exists:users,id',
         ]);
         // If a user is specified in the form use that otherwise default to the user that created the ticket
-        $user = User::whereId($request->input('user_id'))->first() ?? \Auth::user();
+        $user = User::whereId($request->input('user_id'))->first() ?? Auth::user();
         $ticket = Ticket::create([
             'description' => $request->input('description'),
             'priority_id' => $request->input('priority_id'),
@@ -46,6 +48,7 @@ class TicketController extends Controller
             'district_id' => $user->district->id,
             'building_id' => $user->building->id
         ]);
+        Cache::tags('tickets')->clear();
         return redirect("/ticket/$ticket->hash");
     }
 

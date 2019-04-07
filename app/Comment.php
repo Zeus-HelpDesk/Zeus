@@ -2,7 +2,12 @@
 
 namespace App;
 
+use Carbon\Carbon;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Markdown;
 
 /**
  * App\Comment
@@ -11,20 +16,20 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $comment
  * @property int $ticket_id
  * @property int $user_id
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property-read \App\Ticket $ticket
- * @property-read \App\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment whereTicketId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment whereUserId($value)
- * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Comment query()
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Ticket $ticket
+ * @property-read User $user
+ * @method static Builder|Comment whereComment($value)
+ * @method static Builder|Comment whereCreatedAt($value)
+ * @method static Builder|Comment whereId($value)
+ * @method static Builder|Comment whereTicketId($value)
+ * @method static Builder|Comment whereUpdatedAt($value)
+ * @method static Builder|Comment whereUserId($value)
+ * @mixin Eloquent
+ * @method static Builder|Comment newModelQuery()
+ * @method static Builder|Comment newQuery()
+ * @method static Builder|Comment query()
  */
 class Comment extends Model
 {
@@ -32,7 +37,17 @@ class Comment extends Model
     protected $fillable = ['comment', 'ticket_id', 'user_id'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * Return HTML for comment
+     *
+     * @return string
+     */
+    public function getHtmlCommentAttribute()
+    {
+        return Markdown::convertToHtml("{$this->comment}");
+    }
+
+    /**
+     * @return BelongsTo
      */
     public function ticket()
     {
@@ -40,7 +55,7 @@ class Comment extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {

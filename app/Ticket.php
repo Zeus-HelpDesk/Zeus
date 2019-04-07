@@ -2,9 +2,19 @@
 
 namespace App;
 
+use Carbon\Carbon;
+use Eloquent;
+use Hashids;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Markdown;
 use OwenIt\Auditing\Auditable as AuditableTrait;
 use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Models\Audit;
 
 /**
  * App\Ticket
@@ -19,33 +29,33 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property int $priority_id
  * @property int $category_id
  * @property string $completed_at
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $assignees
- * @property-read \Illuminate\Database\Eloquent\Collection|\OwenIt\Auditing\Models\Audit[] $audits
- * @property-read \App\Building $building
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $comments
- * @property-read \App\District $district
- * @property-read \App\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereBuildingId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereCategoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereCompletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereDistrictId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereHash($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket wherePriorityId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereRoom($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereUserId($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Collection|User[] $assignees
+ * @property-read Collection|Audit[] $audits
+ * @property-read Building $building
+ * @property-read Collection|Comment[] $comments
+ * @property-read District $district
+ * @property-read User $user
+ * @method static Builder|Ticket whereBuildingId($value)
+ * @method static Builder|Ticket whereCategoryId($value)
+ * @method static Builder|Ticket whereCompletedAt($value)
+ * @method static Builder|Ticket whereCreatedAt($value)
+ * @method static Builder|Ticket whereDescription($value)
+ * @method static Builder|Ticket whereDistrictId($value)
+ * @method static Builder|Ticket whereHash($value)
+ * @method static Builder|Ticket whereId($value)
+ * @method static Builder|Ticket wherePriorityId($value)
+ * @method static Builder|Ticket whereRoom($value)
+ * @method static Builder|Ticket whereUpdatedAt($value)
+ * @method static Builder|Ticket whereUserId($value)
+ * @mixin Eloquent
  * @property int $status_id
  * @property-read mixed $html_description
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Ticket whereStatusId($value)
+ * @method static Builder|Ticket newModelQuery()
+ * @method static Builder|Ticket newQuery()
+ * @method static Builder|Ticket query()
+ * @method static Builder|Ticket whereStatusId($value)
  */
 class Ticket extends Model implements Auditable
 {
@@ -54,7 +64,7 @@ class Ticket extends Model implements Auditable
     protected $fillable = ['description', 'priority_id', 'category_id', 'user_id', 'room', 'district_id', 'building_id'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function district()
     {
@@ -62,7 +72,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function building()
     {
@@ -70,7 +80,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {
@@ -78,7 +88,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function comments()
     {
@@ -86,7 +96,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return BelongsToMany
      */
     public function assignees()
     {
@@ -94,7 +104,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function status()
     {
@@ -102,7 +112,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function category()
     {
@@ -110,7 +120,7 @@ class Ticket extends Model implements Auditable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function priority()
     {
@@ -122,7 +132,7 @@ class Ticket extends Model implements Auditable
      */
     public function getHtmlDescriptionAttribute()
     {
-        return \Markdown::convertToHtml("{$this->description}");
+        return Markdown::convertToHtml("{$this->description}");
     }
 
     /**
@@ -137,11 +147,12 @@ class Ticket extends Model implements Auditable
             $hash = null;
             while (Ticket::whereHash($hash)->get()->count() > 0 || $hash === null) {
                 // Based on my calculations this code should provide 1,406,408,600,000 possible combinations, I might be wrong though
-                $hash = \Hashids::encode(gmp_random_bits(31));
+                $hash = Hashids::encode(gmp_random_bits(31));
             }
             $status = Status::whereDefault(true)->first(['id']);
             $model->status_id = $status->id;
             $model->hash = $hash;
+            $model->completed_at = null;
         });
     }
 

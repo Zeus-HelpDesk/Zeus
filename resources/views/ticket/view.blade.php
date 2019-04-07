@@ -13,12 +13,13 @@
                 @foreach($ticket->comments as $comment)
                     <div class="card mt-2">
                         <div class="card-body">
-                            {!! $comment->comment !!}
+                            {!! $comment->html_comment !!}
                         </div>
                         <div class="card-footer">
                             <div class="text-muted">
                                 <timeago datetime="{{ $comment->created_at }}" :auto-update="60"></timeago>
                                 from {{ $comment->user->name }}
+                                <div class="flex"></div>
                             </div>
                         </div>
                     </div>

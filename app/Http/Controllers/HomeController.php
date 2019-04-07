@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use Auth;
+use Cache;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class HomeController extends Controller
 {
@@ -21,12 +24,12 @@ class HomeController extends Controller
      * Show the application dashboard.
      *
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index(Request $request)
     {
-        $tickets = \Cache::tags($request->user()->id . ':home')->remember($request->user()->id . ':home:open', 10, function () {
-            return Ticket::whereUserId(\Auth::user()->id)
+        $tickets = Cache::tags([$request->user()->id . ':home', 'tickets'])->remember($request->user()->id . ':home:open', 10, function () {
+            return Ticket::whereUserId(Auth::user()->id)
                 ->whereCompletedAt(null)
                 ->orderBy('created_at', 'DESC')
                 ->get(['hash', 'description', 'updated_at']);

@@ -8,8 +8,6 @@ require('./bootstrap');
 
 import * as Sentry from '@sentry/browser';
 import Vue from 'vue';
-
-
 import VueTimeago from 'vue-timeago';
 
 /**
