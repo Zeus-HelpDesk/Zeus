@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Cache;
 use GrahamCampbell\GuzzleFactory\GuzzleFactory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class EmojiController extends Controller
 {
+    /**
+     * The emoji API get request
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function index(Request $request)
     {
         if ($request->has('search')) {
