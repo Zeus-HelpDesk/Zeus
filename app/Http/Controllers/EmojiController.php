@@ -72,7 +72,7 @@ class EmojiController extends Controller
         return Cache::tags(['emoji'])->remember('emoji_short_data', 240, function () {
             $array = [];
             $headers = ['Accept' => 'application/json'];
-            $result = GuzzleFactory::make()->get('https://cdn.rawgit.com/iamcal/emoji-data/master/emoji.json', ['headers' => $headers]);
+            $result = GuzzleFactory::make()->get('https://rawcdn.githack.com/iamcal/emoji-data/master/emoji.json', ['headers' => $headers]);
             $raw_data = (array)json_decode((string)$result->getBody(), true);
             foreach ($raw_data as $emoji) {
                 $emoji = (object)$emoji;
@@ -80,7 +80,7 @@ class EmojiController extends Controller
                 if ($emoji->has_img_twitter) {
                     foreach ($emoji->short_names as $shortname) {
                         $array[str_replace('-', '_', $shortname)] = [
-                            'img' => 'https://cdn.rawgit.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($emoji->unified) . '.png',
+                            'img' => 'https://rawcdn.githack.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($emoji->unified) . '.png',
                             'unicode' => $this->unicodeBytes($emoji->unified)
                         ];
                     }
@@ -94,7 +94,7 @@ class EmojiController extends Controller
                                 if ($skinTone->has_img_twitter) {
                                     foreach ($emoji->short_names as $shortname) {
                                         $array[str_replace('-', '_', $shortname) . '_tone1']['unicode'] = $this->unicodeBytes($skinTone->unified);
-                                        $array[str_replace('-', '_', $shortname . '_tone1')]['img'] = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
+                                        $array[str_replace('-', '_', $shortname . '_tone1')]['img'] = 'https://rawcdn.githack.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
                                     }
                                 }
                                 break;
@@ -102,7 +102,7 @@ class EmojiController extends Controller
                                 if ($skinTone->has_img_twitter) {
                                     foreach ($emoji->short_names as $shortname) {
                                         $array[str_replace('-', '_', $shortname) . '_tone2']['unicode'] = $this->unicodeBytes($skinTone->unified);
-                                        $array[str_replace('-', '_', $shortname . '_tone2')]['img'] = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
+                                        $array[str_replace('-', '_', $shortname . '_tone2')]['img'] = 'https://rawcdn.githack.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
                                     }
                                 }
                                 break;
@@ -110,7 +110,7 @@ class EmojiController extends Controller
                                 if ($skinTone->has_img_twitter) {
                                     foreach ($emoji->short_names as $shortname) {
                                         $array[str_replace('-', '_', $shortname) . '_tone3']['unicode'] = $this->unicodeBytes($skinTone->unified);
-                                        $array[str_replace('-', '_', $shortname . '_tone3')]['img'] = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
+                                        $array[str_replace('-', '_', $shortname . '_tone3')]['img'] = 'https://rawcdn.githack.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
                                     }
                                 }
                                 break;
@@ -118,7 +118,7 @@ class EmojiController extends Controller
                                 if ($skinTone->has_img_twitter) {
                                     foreach ($emoji->short_names as $shortname) {
                                         $array[str_replace('-', '_', $shortname) . '_tone4']['unicode'] = $this->unicodeBytes($skinTone->unified);
-                                        $array[str_replace('-', '_', $shortname . '_tone4')]['img'] = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
+                                        $array[str_replace('-', '_', $shortname . '_tone4')]['img'] = 'https://rawcdn.githack.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
                                     }
                                 }
                                 break;
@@ -126,7 +126,7 @@ class EmojiController extends Controller
                                 if ($skinTone->has_img_twitter) {
                                     foreach ($emoji->short_names as $shortname) {
                                         $array[str_replace('-', '_', $shortname) . '_tone5']['unicode'] = $this->unicodeBytes($skinTone->unified);
-                                        $array[str_replace('-', '_', $shortname . '_tone5')]['img'] = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
+                                        $array[str_replace('-', '_', $shortname . '_tone5')]['img'] = 'https://rawcdn.githack.com/iamcal/emoji-data/master/img-twitter-64/' . strtolower($skinTone->unified) . '.png';
                                     }
                                 }
                                 break;
