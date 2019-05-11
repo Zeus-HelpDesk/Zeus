@@ -2,7 +2,7 @@
   "name": "zeus-helpdesk/zeus",
   "description": "Help Desk for contract IT departments",
   "keywords": [
-    "help-desk",
+    "help-desk"
   ],
   "license": "AGPL-3.0-or-later",
   "type": "project",
