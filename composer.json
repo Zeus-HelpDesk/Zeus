@@ -1,11 +1,8 @@
 {
-  "name": "matthew/Zeus",
+  "name": "zeus-helpdesk/zeus",
   "description": "Help Desk for contract IT departments",
   "keywords": [
     "help-desk",
-    "it-department",
-    "it",
-    "information-technology"
   ],
   "license": "AGPL-3.0-or-later",
   "type": "project",
