@@ -15,8 +15,8 @@ class CreateTicketUserTable extends Migration
     {
         Schema::create('ticket_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('ticket_id')->unsigned()->index();
-            $table->integer('user_id')->unsigned()->index();
+            $table->bigInteger('ticket_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->timestamps();
 
             // This handles what happens if a ticket or user is deleted

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-11">
                 <div class="card">
                     <div class="card-header">{{ __('Your Open Tickets') }}</div>
 
@@ -14,6 +14,7 @@
                                 <th>{{ __('ID') }}</th>
                                 <th>{{ __('Description') }}</th>
                                 <th>{{ __('Last Update') }}</th>
+                                <th>{{ __('Building') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -24,6 +25,7 @@
                                     <td>
                                         <timeago datetime="{{ $ticket->updated_at }}" :auto-update="60"></timeago>
                                     </td>
+                                    <td>{{ $ticket->building->name }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
