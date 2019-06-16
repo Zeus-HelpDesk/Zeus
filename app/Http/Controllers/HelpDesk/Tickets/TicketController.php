@@ -20,10 +20,10 @@ class TicketController extends Controller
 
     public function create(Request $request)
     {
-        $categories = Cache::tags('category')->remember('category.all', 60, function () {
+        $categories = Cache::tags('category')->remember('category.all', now()->addHour(1), function () {
             return Category::all();
         });
-        $priorities = Cache::tags('priority')->remember('priority.all', 60, function () {
+        $priorities = Cache::tags('priority')->remember('priority.all', now()->addHour(1), function () {
             return Priority::all();
         });
         return view('ticket.create', ['categories' => $categories, 'priorities' => $priorities]);

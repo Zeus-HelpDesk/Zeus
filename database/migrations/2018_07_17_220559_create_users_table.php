@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('room');
             $table->string('phone_number')->nullable();
             $table->integer('phone_extension')->nullable();
-            $table->integer('district_id');
-            $table->integer('building_id');
+            $table->bigInteger('district_id')->unsigned();
+            $table->bigInteger('building_id')->unsigned();
             $table->boolean('staff')->default(false);
             $table->integer('api_limit')->default(60);
             $table->rememberToken();

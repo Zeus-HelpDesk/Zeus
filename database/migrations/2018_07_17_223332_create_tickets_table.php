@@ -14,11 +14,11 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('hash')->index();
             $table->text('description');
-            $table->integer('district_id')->unsigned()->index();
-            $table->integer('building_id')->unsigned()->index();
+            $table->bigInteger('district_id')->unsigned()->index();
+            $table->bigInteger('building_id')->unsigned()->index();
             $table->string('room');
             $table->bigInteger('user_id')->unsigned()->index();
             $table->integer('priority_id')->unsigned()->index();

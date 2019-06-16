@@ -4,13 +4,14 @@ namespace App\Http\Controllers\HelpDesk\Meta;
 
 use App\Http\Controllers\Controller;
 use App\Priority;
+use Cache;
 use Illuminate\Http\Request;
 
 class PriorityController extends Controller
 {
     public function index()
     {
-        $prorities = \Cache::tags('priority')->remember('priority.all', 60, function () {
+        $prorities = Cache::tags('priority')->remember('priority.all', now()->addHour(1), function () {
             return Priority::all();
         });
         return view('admin.help-desk.priority.index', ['priorities' => $prorities]);
@@ -28,7 +29,7 @@ class PriorityController extends Controller
             'description' => 'nullable|string'
         ]);
         Priority::create($request->only(['name', 'description']));
-        \Cache::tags('priority')->clear();
+        Cache::tags('priority')->clear();
         return redirect('/admin/help-desk/priority');
     }
 
@@ -44,7 +45,7 @@ class PriorityController extends Controller
             'description' => 'nullable|string'
         ]);
         tap($priority)->update($request->only(['name', 'description']));
-        \Cache::tags('priority')->clear();
+        Cache::tags('priority')->clear();
         return redirect('/admin/help-desk/priority');
     }
 }

@@ -6,6 +6,7 @@ use App\Building;
 use App\District;
 use App\Http\Controllers\Controller;
 use App\User;
+use Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,7 +54,7 @@ class RegisterController extends Controller
             'invite_code' => 'required|string',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:8|confirmed',
             'room' => 'required|string',
             'phone_number' => 'nullable|string',
             'extension' => 'nullable|integer'
@@ -64,7 +65,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
@@ -74,7 +75,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => \Hash::make($data['password']),
+            'password' => Hash::make($data['password']),
             'district_id' => $district->id,
             'building_id' => $building->id,
             'room' => $data['room'],

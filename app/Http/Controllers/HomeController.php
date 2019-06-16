@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $tickets = Cache::tags([$request->user()->id . ':home', 'tickets'])
-            ->remember($request->user()->id . ':home:open', 10, function () {
+            ->remember($request->user()->id . ':home:open', now()->addMinute(10), function () {
             return Ticket::whereUserId(Auth::user()->id)
                 ->whereCompletedAt(null)
                 ->orderBy('created_at', 'DESC')

@@ -14,7 +14,7 @@ class CreateTicketUserTable extends Migration
     public function up()
     {
         Schema::create('ticket_user', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id')->unsigned();
             $table->bigInteger('ticket_id')->unsigned()->index();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->timestamps();

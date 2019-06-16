@@ -4,13 +4,14 @@ namespace App\Http\Controllers\HelpDesk\Meta;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use Cache;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = \Cache::tags('category')->remember('category.all', 60, function () {
+        $categories = Cache::tags('category')->remember('category.all', now()->addHour(1), function () {
             return Category::all();
         });
         return view('admin.help-desk.category.index', ['categories' => $categories]);
@@ -29,7 +30,7 @@ class CategoryController extends Controller
             'icon' => 'nullable|string'
         ]);
         Category::create($request->only(['name', 'description', 'icon']));
-        \Cache::tags('category')->clear();
+        Cache::tags('category')->clear();
         return redirect('/admin/help-desk/category');
     }
 
@@ -46,7 +47,7 @@ class CategoryController extends Controller
             'icon' => 'nullable|string'
         ]);
         tap($category)->update($request->only(['name', 'description', 'icon']));
-        \Cache::tags('category')->clear();
+        Cache::tags('category')->clear();
         return redirect('/admin/help-desk/category');
     }
 }

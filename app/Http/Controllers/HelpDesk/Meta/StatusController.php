@@ -4,13 +4,14 @@ namespace App\Http\Controllers\HelpDesk\Meta;
 
 use App\Http\Controllers\Controller;
 use App\Status;
+use Cache;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
     public function index()
     {
-        $status = \Cache::tags('status')->remember('status.all', 60, function () {
+        $status = Cache::tags('status')->remember('status.all', now()->addHour(1), function () {
             return Status::all();
         });
         return view('admin.help-desk.status.index', ['statuses' => $status]);
@@ -29,7 +30,7 @@ class StatusController extends Controller
             'closes_ticket' => 'nullable'
         ]);
         Status::create($request->only(['name', 'description', 'closes_ticket']));
-        \Cache::tags('status')->clear();
+        Cache::tags('status')->clear();
         return redirect('/admin/help-desk/status');
     }
 
@@ -46,7 +47,7 @@ class StatusController extends Controller
             'closes_ticket' => 'nullable'
         ]);
         tap($status)->update($request->only(['name', 'description', 'closes_ticket']));
-        \Cache::tags('status')->clear();
+        Cache::tags('status')->clear();
         return redirect('/admin/help-desk/category');
     }
 }

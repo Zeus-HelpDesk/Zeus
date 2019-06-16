@@ -69,7 +69,7 @@ class EmojiController extends Controller
      */
     public function getEmoji()
     {
-        return Cache::tags(['emoji'])->remember('emoji_short_data', 240, function () {
+        return Cache::tags(['emoji'])->remember('emoji_short_data', now()->addHour(12), function () {
             $array = [];
             $headers = ['Accept' => 'application/json'];
             $result = GuzzleFactory::make()->get('https://rawcdn.githack.com/iamcal/emoji-data/master/emoji.json', ['headers' => $headers]);
