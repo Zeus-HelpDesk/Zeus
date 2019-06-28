@@ -2,10 +2,11 @@
 
 namespace App\Markdown\Parsers;
 
-use App\User;
+use App\Models\User;
 use League\CommonMark\Inline\Element\Link;
 use League\CommonMark\Inline\Parser\AbstractInlineParser;
 use League\CommonMark\InlineParserContext;
+use URL;
 
 class UserMentionParser extends AbstractInlineParser
 {
@@ -49,7 +50,7 @@ class UserMentionParser extends AbstractInlineParser
             $cursor->restoreState($previousState);
             return false;
         }
-        $ticketUrl = \URL::to('/user/' . $user->slug);
+        $ticketUrl = URL::to('/user/' . $user->slug);
         $inlineContext->getContainer()->appendChild(new Link($ticketUrl, '@' . $user->slug));
         return true;
     }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\HelpDesk\Meta;
 
 use App\Http\Controllers\Controller;
-use App\Priority;
+use App\Models\Priority;
 use Cache;
 use Illuminate\Http\Request;
 

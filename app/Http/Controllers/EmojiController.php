@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Emoji;
+use App\Models\Emoji;
 use Cache;
 use GrahamCampbell\GuzzleFactory\GuzzleFactory;
 use Illuminate\Http\JsonResponse;

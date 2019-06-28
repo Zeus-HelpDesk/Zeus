@@ -2,10 +2,11 @@
 
 namespace App\Markdown\Parsers;
 
-use App\Ticket;
+use App\Models\Ticket;
 use League\CommonMark\Inline\Element\Link;
 use League\CommonMark\Inline\Parser\AbstractInlineParser;
 use League\CommonMark\InlineParserContext;
+use URL;
 
 class TicketMentionParser extends AbstractInlineParser
 {
@@ -49,7 +50,7 @@ class TicketMentionParser extends AbstractInlineParser
             $cursor->restoreState($previousState);
             return false;
         }
-        $ticketUrl = \URL::to('/ticket/' . $ticket->hash);
+        $ticketUrl = URL::to('/ticket/' . $ticket->hash);
         $inlineContext->getContainer()->appendChild(new Link($ticketUrl, '#' . $ticket->hash));
         return true;
     }

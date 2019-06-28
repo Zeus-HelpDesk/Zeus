@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Building;
-use App\District;
+use App\Models\Building;
+use App\Models\District;
 use Hash;
 use Illuminate\Http\Request;
 

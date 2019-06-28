@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\HelpDesk\Tickets;
 
-use App\Category;
 use App\Http\Controllers\Controller;
-use App\Priority;
-use App\Ticket;
-use App\User;
+use App\Models\Category;
+use App\Models\Priority;
+use App\Models\Ticket;
+use App\Models\User;
 use Auth;
 use Cache;
 use Illuminate\Http\Request;

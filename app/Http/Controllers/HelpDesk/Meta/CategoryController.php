@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\HelpDesk\Meta;
 
-use App\Category;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Cache;
 use Illuminate\Http\Request;
 

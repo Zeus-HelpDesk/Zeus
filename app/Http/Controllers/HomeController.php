@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Ticket;
+use App\Models\Ticket;
 use Auth;
 use Cache;
 use Illuminate\Http\Request;
@@ -28,14 +28,24 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $tickets = Cache::tags([$request->user()->id . ':home', 'tickets'])
-            ->remember($request->user()->id . ':home:open', now()->addMinute(10), function () {
-            return Ticket::whereUserId(Auth::user()->id)
-                ->whereCompletedAt(null)
-                ->orderBy('created_at', 'DESC')
-                ->with('building')
-                ->get(['hash', 'description', 'updated_at', 'building_id']);
-        });
+        if ($request->user()->staff) {
+            $tickets = Cache::tags(['tickets', 'staff:home'])
+                ->remember("staff:home:open", now()->addMinute(10), function () {
+                    return Ticket::whereCompletedAt(null)
+                        ->orderBy('created_at', 'DESC')
+                        ->with('building')
+                        ->get(['hash', 'description', 'updated_at', 'building_id']);
+                });
+        } else {
+            $tickets = Cache::tags([$request->user()->id . ':home', 'tickets'])
+                ->remember($request->user()->id . ':home:open', now()->addMinute(10), function () {
+                    return Ticket::whereUserId(Auth::user()->id)
+                        ->whereCompletedAt(null)
+                        ->orderBy('created_at', 'DESC')
+                        ->with('building')
+                        ->get(['hash', 'description', 'updated_at', 'building_id']);
+                });
+        }
         return view('home', ['open' => $tickets]);
     }
 }

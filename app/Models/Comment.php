@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Eloquent;
@@ -51,7 +51,7 @@ class Comment extends Model
      */
     public function ticket()
     {
-        return $this->belongsTo('App\Ticket');
+        return $this->belongsTo('App\Models\Ticket');
     }
 
     /**
@@ -59,6 +59,6 @@ class Comment extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\HelpDesk\Tickets;
 
-use App\Comment;
 use App\Http\Controllers\Controller;
-use App\Ticket;
+use App\Models\Comment;
+use App\Models\Ticket;
 use Auth;
 use Illuminate\Http\Request;
 

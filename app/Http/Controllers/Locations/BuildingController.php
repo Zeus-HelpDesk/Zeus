@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Locations;
 
-use App\Building;
-use App\District;
 use App\Http\Controllers\Controller;
+use App\Models\Building;
+use App\Models\District;
 use Illuminate\Http\Request;
 
 class BuildingController extends Controller

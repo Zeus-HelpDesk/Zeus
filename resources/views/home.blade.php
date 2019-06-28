@@ -21,7 +21,7 @@
                             @foreach($open as $ticket)
                                 <tr>
                                     <td><a href="{{ url("/ticket/$ticket->hash") }}">{{ $ticket->hash }}</a></td>
-                                    <td>{!! Markdown::convertToHtml(str_limit($ticket->description)) !!}</td>
+                                    <td>{!! Markdown::convertToHtml(\Illuminate\Support\Str::limit($ticket->description)) !!}</td>
                                     <td>
                                         <timeago datetime="{{ $ticket->updated_at }}" :auto-update="60"></timeago>
                                     </td>

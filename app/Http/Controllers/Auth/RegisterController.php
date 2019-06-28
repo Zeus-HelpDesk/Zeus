@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Building;
-use App\District;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\Building;
+use App\Models\District;
+use App\Models\User;
 use Hash;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;

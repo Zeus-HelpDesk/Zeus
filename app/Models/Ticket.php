@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Carbon\Carbon;
 use Eloquent;
@@ -68,7 +68,7 @@ class Ticket extends Model implements Auditable
      */
     public function district()
     {
-        return $this->belongsTo('App\District');
+        return $this->belongsTo('App\Models\District');
     }
 
     /**
@@ -76,7 +76,7 @@ class Ticket extends Model implements Auditable
      */
     public function building()
     {
-        return $this->belongsTo('App\Building');
+        return $this->belongsTo('App\Models\Building');
     }
 
     /**
@@ -84,7 +84,7 @@ class Ticket extends Model implements Auditable
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     /**
@@ -92,7 +92,7 @@ class Ticket extends Model implements Auditable
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     /**
@@ -100,7 +100,7 @@ class Ticket extends Model implements Auditable
      */
     public function assignees()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
 
     /**
@@ -108,7 +108,7 @@ class Ticket extends Model implements Auditable
      */
     public function status()
     {
-        return $this->belongsTo('App\Status');
+        return $this->belongsTo('App\Models\Status');
     }
 
     /**
@@ -116,7 +116,7 @@ class Ticket extends Model implements Auditable
      */
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 
     /**
@@ -124,7 +124,7 @@ class Ticket extends Model implements Auditable
      */
     public function priority()
     {
-        return $this->belongsTo('App\Priority');
+        return $this->belongsTo('App\Models\Priority');
     }
 
     /**
