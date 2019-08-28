@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Building;
-use App\District;
+use App\Models\Building;
+use App\Models\District;
 use Illuminate\Console\Command;
 
 class CreateBuilding extends Command

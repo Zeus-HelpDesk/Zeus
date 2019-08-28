@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\District;
+use App\Models\District;
 use Illuminate\Console\Command;
 
 class CreateDistrict extends Command
