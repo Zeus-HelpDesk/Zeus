@@ -2,7 +2,6 @@
 
 namespace App\Markdown\Renderers;
 
-use App\Markdown\Elements\Emoji;
 use App\Markdown\Elements\EmojiElement;
 use League\CommonMark\ElementRendererInterface;
 use League\CommonMark\HtmlElement;

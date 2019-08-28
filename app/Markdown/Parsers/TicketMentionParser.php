@@ -4,17 +4,17 @@ namespace App\Markdown\Parsers;
 
 use App\Models\Ticket;
 use League\CommonMark\Inline\Element\Link;
-use League\CommonMark\Inline\Parser\AbstractInlineParser;
+use League\CommonMark\Inline\Parser\InlineParserInterface;
 use League\CommonMark\InlineParserContext;
 use URL;
 
-class TicketMentionParser extends AbstractInlineParser
+final class TicketMentionParser implements InlineParserInterface
 {
 
     /**
      * @return string[]
      */
-    public function getCharacters()
+    public function getCharacters(): array
     {
         return ['#'];
     }
@@ -24,7 +24,7 @@ class TicketMentionParser extends AbstractInlineParser
      *
      * @return bool
      */
-    public function parse(InlineParserContext $inlineContext)
+    public function parse(InlineParserContext $inlineContext): bool
     {
         $cursor = $inlineContext->getCursor();
         // The @ symbol must not have any other characters immediately prior

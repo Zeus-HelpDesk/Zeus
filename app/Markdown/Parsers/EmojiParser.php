@@ -4,16 +4,16 @@ namespace App\Markdown\Parsers;
 
 use App\Http\Controllers\EmojiController;
 use App\Markdown\Elements\EmojiElement;
-use League\CommonMark\Inline\Parser\AbstractInlineParser;
+use League\CommonMark\Inline\Parser\InlineParserInterface;
 use League\CommonMark\InlineParserContext;
 
-class EmojiParser extends AbstractInlineParser
+final class EmojiParser implements InlineParserInterface
 {
 
     /**
      * @return string[]
      */
-    public function getCharacters()
+    public function getCharacters(): array
     {
         return [':'];
     }
@@ -23,7 +23,7 @@ class EmojiParser extends AbstractInlineParser
      *
      * @return bool
      */
-    public function parse(InlineParserContext $inlineContext)
+    public function parse(InlineParserContext $inlineContext): bool
     {
         $emoji = new EmojiController();
         $map = $emoji->getEmoji();
