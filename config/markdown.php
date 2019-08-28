@@ -11,6 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+use App\Markdown\MarkdownExtension;
+use League\CommonMark\Ext\Table\TableExtension;
+
 return [
 
     /*
@@ -42,8 +45,8 @@ return [
     */
 
     'extensions' => [
-        \Webuni\CommonMark\TableExtension\TableExtension::class,
-        \App\Markdown\MarkdownExtension::class,
+        TableExtension::class,
+        MarkdownExtension::class,
     ],
 
     /*
@@ -145,4 +148,15 @@ return [
 
     'allow_unsafe_links' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Maximum Nesting Level
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies the maximum permitted block nesting level.
+    |
+    | Default: INF
+    |
+    */
+    'max_nesting_level' => INF,
 ];
