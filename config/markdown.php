@@ -12,7 +12,11 @@ declare(strict_types=1);
  */
 
 use App\Markdown\MarkdownExtension;
+use League\CommonMark\Ext\SmartPunct\SmartPunctExtension;
 use League\CommonMark\Ext\Table\TableExtension;
+use League\CommonMark\Ext\Strikethrough\StrikethroughExtension;
+use League\CommonMark\Ext\TaskList\TaskListExtension;
+
 
 return [
 
@@ -47,6 +51,9 @@ return [
     'extensions' => [
         TableExtension::class,
         MarkdownExtension::class,
+        SmartPunctExtension::class,
+        StrikethroughExtension::class,
+        TaskListExtension::class,
     ],
 
     /*

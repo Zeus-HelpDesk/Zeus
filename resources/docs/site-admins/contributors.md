@@ -11,7 +11,7 @@ These amazing people have contributed to this project both directly and indirect
 <a name="core-developers"></a>
 ## Core Developers
 These people have contributed directly to this project in huge ways. Without their contributions this project would not exist.
-- [Matthew Rhodes](https://www.kilgoretech.com) - Project Creator
+- [Matthew Kilgore](https://www.kilgoretech.com) - Project Creator
 
 <a name="supporters"></a>
 ## Supporters

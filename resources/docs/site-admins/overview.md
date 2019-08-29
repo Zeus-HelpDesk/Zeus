@@ -20,7 +20,7 @@ The following server requirements are required for this application to run prope
 - Caddy **OR** Nginx **OR** Apache2
 - MySQL 5.7+
 - Redis 5.0+
-- PHP
+- PHP 7.2+
 - **PHP Extensions**
     - PDO MySQL
     - GMP
@@ -36,8 +36,8 @@ The following server requirements are required for this application to run prope
 <a name="license"></a>
 ## License
 
-Zeus Help-Desk for multi-district school IT Departments
-Copyright (C) 2018 Matthew Rhodes
+Zeus Help-Desk 
+Copyright (C) 2019 Matthew Kilgore
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
